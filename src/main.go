@@ -1,18 +1,26 @@
 package main
 
 import (
-	"bufio"
+	"fmt"
 	"log"
 	"os"
-	"os/exec"
-)
-
-const (
-	chrome = `C:\Program Files (x86)\Google\Chrome\Application\chrome.exe`
-	path   = `C:\Users\tkido\Dropbox\Kami Data\ブログ\test.txt`
+	"path/filepath"
+	"sort"
 )
 
 func main() {
+	txts, err := filepath.Glob(path)
+	if err != nil {
+		log.Fatal(err)
+	}
+	sort.Slice(txts, func(i, j int) bool {
+		f1, _ := os.Stat(txts[i])
+		f2, _ := os.Stat(txts[j])
+		return f1.ModTime().After(f2.ModTime())
+    })
+	fmt.Println(txts[0])
+	
+	/*
 	f, err := os.Open(path)
 	if err != nil {
 		log.Fatal(err)
@@ -26,6 +34,7 @@ func main() {
 		// non-EOF error.
 		log.Fatal(s.Err())
 	}
-
 	exec.Command(chrome, path).Run()
+	exec.Command(editor, path).Run()
+	*/
 }
