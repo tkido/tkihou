@@ -1,44 +1,46 @@
 package main
 
 import (
+	"bufio"
+	"bytes"
 	"fmt"
 	"log"
 	"os"
 	"os/exec"
 	"os/signal"
-	"path/filepath"
-	"sort"
 	"syscall"
 	"time"
 
 	"github.com/fsnotify/fsnotify"
 )
 
-func main() {
-	txts, err := filepath.Glob(path)
-	if err != nil {
-		log.Fatal(err)
+func convert(src string) {
+	f, err := os.Open(src)
+	defer f.Close()
+	if err != nil { log.Fatal(err) }
+	s := bufio.NewScanner(f)
+	if !s.Scan() { log.Fatal("No Title!!") }
+	title := s.Text()
+	buf := bytes.NewBufferString(fmt.Sprintf("<!--\n%s\n-->\n", title))
+	for s.Scan() {
+		buf.WriteString(s.Text())
 	}
-	sort.Slice(txts, func(i, j int) bool {
-		f1, _ := os.Stat(txts[i])
-		f2, _ := os.Stat(txts[j])
-		return f1.ModTime().After(f2.ModTime())
-    })	
-	source := txts[0]
-	
-	// convert()
-	exec.Command(chrome, html).Run()
+	if s.Err() != nil { log.Fatal(s.Err()) }
+	content := buf.String()
+	execute(title, content)
+}
+
+func main() {
+	source := getSource()
+	convert(source)
+	exec.Command(chrome, rstHTML).Run()
 
 	watcher, err := fsnotify.NewWatcher()
-	if err != nil {
-		log.Fatal(err)
-	}
+	if err != nil { log.Fatal(err) }
 	defer watcher.Close()
 
 	err = watcher.Add(source)
-	if err != nil {
-		log.Fatal(err)
-	}
+	if err != nil { log.Fatal(err) }
 
 	ch := make(chan os.Signal, 1)
 	signal.Notify(ch, syscall.SIGINT)
@@ -54,7 +56,7 @@ Loop:
 				fmt.Println(ev)
 				// "Write" event within 1.0 second is regarded as duplicated.
 				if now.Sub(updated) > time.Second {
-					// convert()
+					convert(source)
 					fmt.Println("Converted!!")
 					updated = now
 				}
@@ -68,23 +70,5 @@ Loop:
 		}
 	}
 	fmt.Println("Loop End")
-	exec.Command(editor, result).Run()
-	
-	/*
-	f, err := os.Open(path)
-	if err != nil {
-		log.Fatal(err)
-		return
-	}
-	s := bufio.NewScanner(f)
-	for s.Scan() {
-		// log.Print(strconv.Quote(s.Text()))
-	}
-	if s.Err() != nil {
-		// non-EOF error.
-		log.Fatal(s.Err())
-	}
-	exec.Command(chrome, path).Run()
-	exec.Command(editor, path).Run()
-	*/
+	exec.Command(editor, rstTxt).Run()
 }
