@@ -15,7 +15,17 @@ import (
 )
 
 func main() {
-	source := getSource()
+	txts, err := filepath.Glob(path)
+	if err != nil {
+		log.Fatal(err)
+	}
+	sort.Slice(txts, func(i, j int) bool {
+		f1, _ := os.Stat(txts[i])
+		f2, _ := os.Stat(txts[j])
+		return f1.ModTime().After(f2.ModTime())
+    })	
+	source := txts[0]
+	
 	// convert()
 	exec.Command(chrome, html).Run()
 
@@ -42,8 +52,8 @@ Loop:
 			if ev.Op&fsnotify.Write != 0 {
 				now := time.Now()
 				fmt.Println(ev)
-				// "Write" event within 0.5 second to the same file is regarded as duplicated.
-				if now.Sub(updated) > time.Second/2 {
+				// "Write" event within 1.0 second is regarded as duplicated.
+				if now.Sub(updated) > time.Second {
 					// convert()
 					fmt.Println("Converted!!")
 					updated = now
@@ -77,17 +87,4 @@ Loop:
 	exec.Command(chrome, path).Run()
 	exec.Command(editor, path).Run()
 	*/
-}
-
-func getSource() string {
-	txts, err := filepath.Glob(path)
-	if err != nil {
-		log.Fatal(err)
-	}
-	sort.Slice(txts, func(i, j int) bool {
-		f1, _ := os.Stat(txts[i])
-		f2, _ := os.Stat(txts[j])
-		return f1.ModTime().After(f2.ModTime())
-    })
-	return txts[0]
 }
