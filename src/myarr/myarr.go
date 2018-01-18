@@ -2,6 +2,7 @@ package myarr
 
 import (
 	"log"
+	"regexp"
 )
 
 // MyArr can push unshift etc.
@@ -58,6 +59,20 @@ func (p *MyArr) Push(arr ...string) *MyArr {
 // Size is Size
 func (p *MyArr) Size() int {
 	return len(p.sl)
+}
+
+// TakeBlock is TakeBlock
+func (p *MyArr) TakeBlock(re *regexp.Regexp) *MyArr {
+	buf := NewMyArr()
+	for _, line := range p.sl {
+		if re.MatchString(line) {
+			buf.Push(re.ReplaceAllString(line, ""))
+		} else {
+			break
+		}
+	}
+	p.sl = p.sl[buf.Size():]
+	return buf
 }
 
 // Unshift is Unshift

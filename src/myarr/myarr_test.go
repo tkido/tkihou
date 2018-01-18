@@ -2,6 +2,7 @@ package myarr
 
 import (
 	"reflect"
+	"regexp"
 	"testing"
 )
 
@@ -47,15 +48,6 @@ func TestPop(t *testing.T) {
 	}
 }
 
-func TestSize(t *testing.T) {
-	arr := NewMyArr("1", "2", "3")
-	want := 3
-	got := arr.Size()
-	if got != want {
-		t.Errorf("got %v want %v", got, want)
-	}
-}
-
 func TestPush(t *testing.T) {
 	want := NewMyArr("1", "2", "3", "4", "5")
 	got := NewMyArr("1")
@@ -65,6 +57,28 @@ func TestPush(t *testing.T) {
 	}
 }
 
+func TestSize(t *testing.T) {
+	arr := NewMyArr("1", "2", "3")
+	want := 3
+	got := arr.Size()
+	if got != want {
+		t.Errorf("got %v want %v", got, want)
+	}
+}
+
+func TestTakeBlock(t *testing.T) {
+	re := regexp.MustCompile(`^#`)
+	arr := NewMyArr("#1", "#2", "3", "4")
+	want := NewMyArr("1", "2")
+	wantRest := NewMyArr("3", "4")
+	got := arr.TakeBlock(re)
+	if !reflect.DeepEqual(want, got) {
+		t.Errorf("got %v want %v", got, want)
+	}
+	if !reflect.DeepEqual(wantRest, arr) {
+		t.Errorf("got %v want %v", arr, wantRest)
+	}
+}
 func TestUnshift(t *testing.T) {
 	want := NewMyArr("1", "2", "3")
 	got := NewMyArr("3")
