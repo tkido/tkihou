@@ -10,7 +10,7 @@ func TestConcat(t *testing.T) {
 	got := NewMyArr("1", "2")
 	got.Concat(NewMyArr("3", "4"))
 	if !reflect.DeepEqual(want, got) {
-		t.Errorf("Push: got %v want %v", got, want)
+		t.Errorf("got %v want %v", got, want)
 	}
 }
 
@@ -26,7 +26,7 @@ func TestMap(t *testing.T) {
 	got := NewMyArr("1", "2", "3")
 	got.Map(repeat)
 	if !reflect.DeepEqual(want, got) {
-		t.Errorf("Push: got %v want %v", got, want)
+		t.Errorf("got %v want %v", got, want)
 	}
 }
 func repeat(s string) string {
@@ -43,7 +43,7 @@ func TestPop(t *testing.T) {
 	wantArr := NewMyArr("2", "3")
 	gotArr := arr
 	if !reflect.DeepEqual(wantArr, gotArr) {
-		t.Errorf("Push: got %v want %v", gotArr, wantArr)
+		t.Errorf("got %v want %v", gotArr, wantArr)
 	}
 }
 
@@ -57,11 +57,11 @@ func TestSize(t *testing.T) {
 }
 
 func TestPush(t *testing.T) {
-	want := NewMyArr("1", "2", "3")
+	want := NewMyArr("1", "2", "3", "4", "5")
 	got := NewMyArr("1")
-	got.Push("2").Push("3")
+	got.Push("2").Push("3").Push("4", "5")
 	if !reflect.DeepEqual(want, got) {
-		t.Errorf("Push: got %v want %v", got, want)
+		t.Errorf("got %v want %v", got, want)
 	}
 }
 

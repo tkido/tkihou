@@ -50,8 +50,8 @@ func (p *MyArr) Pop() string {
 }
 
 // Push is Push
-func (p *MyArr) Push(s string) *MyArr {
-	p.sl = append(p.sl, s)
+func (p *MyArr) Push(arr ...string) *MyArr {
+	p.sl = append(p.sl, arr...)
 	return p
 }
 
