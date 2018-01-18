@@ -34,17 +34,25 @@ func repeat(s string) string {
 }
 func TestPop(t *testing.T) {
 	arr := NewMyArr("1", "2", "3")
-
 	want := "1"
 	got := arr.Pop()
 	if got != want {
-		t.Errorf("First: got %v want %v", got, want)
+		t.Errorf("got %v want %v", got, want)
 	}
 
 	wantArr := NewMyArr("2", "3")
 	gotArr := arr
 	if !reflect.DeepEqual(wantArr, gotArr) {
 		t.Errorf("Push: got %v want %v", gotArr, wantArr)
+	}
+}
+
+func TestSize(t *testing.T) {
+	arr := NewMyArr("1", "2", "3")
+	want := 3
+	got := arr.Size()
+	if got != want {
+		t.Errorf("got %v want %v", got, want)
 	}
 }
 

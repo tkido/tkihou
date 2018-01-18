@@ -55,6 +55,11 @@ func (p *MyArr) Push(s string) *MyArr {
 	return p
 }
 
+// Size is Size
+func (p *MyArr) Size() int {
+	return len(p.sl)
+}
+
 // Unshift is Unshift
 func (p *MyArr) Unshift(s string) *MyArr {
 	newSl := make([]string, 0, len(p.sl)+1)
