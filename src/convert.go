@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"html"
 	"log"
+	"net/url"
 	"os"
 	"regexp"
 	"strings"
@@ -29,14 +30,6 @@ var reTable = regexp.MustCompile(`^\|`)
 
 var reNotP = regexp.MustCompile(`^([*#\t:\-\+]|====|\{|\}|>>|<<|$)`)
 var reTableEnd = regexp.MustCompile(`\*$`)
-
-var r = `
-  \*\*(.+?)\*\*                          # $1: em
-| \*(.+?)\*                              # $2: strong
-| \\\-(.+?)\-                            # $3: del
-`
-var reReComment = regexp.MustCompile(`(?m)(\s+)|(\#.*$)`)
-var reInline = regexp.MustCompile(reReComment.ReplaceAllString(r, ""))
 
 func convert(src string) {
 	f, err := os.Open(src)
@@ -102,24 +95,68 @@ func convert(src string) {
 	execute(title, content)
 }
 
-var reEm = regexp.MustCompile(`\*\*(.+?)\*\*`)
-var reStrong = regexp.MustCompile(`\*(.+?)\*`)
-var reDel = regexp.MustCompile(`\-(.+?)\-`)
-var reU = regexp.MustCompile(`\_(.+?)\_`)
-var reI = regexp.MustCompile(`\\(.+?)\\`)
-var reQ = regexp.MustCompile(`>>(.+?)<<`)
+var r = `
+  \*\*(.+?)\*\*                  # $1: em
+| \*(.+?)\*                      # $2: strong
+| \\\-(.+?)\-                    # $3: del
+| \\_(.+?)_                      # $4: u
+| \\(.+?)\\                      # $5: i
+| >>(.+?)<<                      # $6: q
+| \{(.+?)\}                      # $7: notation
+| \[([^;]+?);w\]                 # $8: wikipedia
+| \[([^;]+?);g\]                 # $9: google
+| \[([^;]+?);nd\]                # $10: nico_dic
+| \[([^;]+?);ej\]                # $11: weblio
+| \[([0-9^;]+?);y\]              # $12: yahoo finance Japan
+| \[([A-Z^;]+?);y\]              # $13: yahoo finance America
+| \[([^;]+?);(https?://.+?)\]    # $14:label, $15: URI
+`
+var reReComment = regexp.MustCompile(`(?m)(\s+)|(\#.*$)`)
+var reInlineCheck = regexp.MustCompile(reReComment.ReplaceAllString(r, ""))
+var reInlineConvert = regexp.MustCompile(`☆.+?☆`)
 
-func inline(line string) string {
-	line = reEm.ReplaceAllString(line, `<em>$1</em>`)
-	line = reStrong.ReplaceAllString(line, `<strong>$1</strong>`)
-	line = reDel.ReplaceAllString(line, `<del>$1</del>`)
-	line = reU.ReplaceAllString(line, `<u>$1</u>`)
-	line = reI.ReplaceAllString(line, `<i>$1</i>`)
-	line = reQ.ReplaceAllString(line, `<q>$1</q>`)
+func inlineConvert(line string) string {
+	br := strings.Split(line, "★")
+	if em := br[1]; em != "" {
+		return fmt.Sprintf(`<em>%s</em>`, inline(em))
+	} else if strong := br[2]; strong != "" {
+		return fmt.Sprintf(`<strong>%s</strong>`, inline(strong))
+	} else if del := br[3]; del != "" {
+		return fmt.Sprintf(`<del>%s</del>`, inline(del))
+	} else if u := br[4]; u != "" {
+		return fmt.Sprintf(`<u>%s</u>`, inline(u))
+	} else if i := br[5]; i != "" {
+		return fmt.Sprintf(`<i>%s</i>`, inline(i))
+	} else if q := br[6]; q != "" {
+		return fmt.Sprintf(`<q>%s</q>`, inline(q))
+	} else if nota := br[7]; nota != "" {
+		return notation(nota)
+	} else if wikipedia := br[8]; wikipedia != "" {
+		return fmt.Sprintf(`<a href="http://ja.wikipedia.org/wiki/%s" target="_blank">%s</a>`, url.PathEscape(wikipedia), html.EscapeString(wikipedia))
+	} else if google := br[9]; google != "" {
+		return fmt.Sprintf(`<a href="http://www.google.com/search?num=50&hl=ja&q=%s&lr=lang_ja" target="_blank">%s</a>`, url.PathEscape(google), html.EscapeString(google))
+	} else if nicodic := br[10]; nicodic != "" {
+		return fmt.Sprintf(`<a href="http://dic.nicovideo.jp/a/%s" target="_blank">%s</a>`, url.PathEscape(nicodic), html.EscapeString(nicodic))
+	} else if weblio := br[11]; weblio != "" {
+		return fmt.Sprintf(`<a href="http://ejje.weblio.jp/content/%s" target="_blank">%s</a>`, url.PathEscape(weblio), html.EscapeString(weblio))
+	} else if codeJp := br[12]; codeJp != "" {
+		return fmt.Sprintf(`<a href="http://stocks.finance.yahoo.co.jp/stocks/detail/?code=%s" target="_blank">%s</a>`, url.PathEscape(codeJp), html.EscapeString(codeJp))
+	} else if codeUs := br[13]; codeUs != "" {
+		return fmt.Sprintf(`<a href="http://finance.yahoo.com/q?s=%s" target="_blank">%s</a>`, url.PathEscape(codeUs), html.EscapeString(codeUs))
+	} else if label, uri := br[14], br[15]; label != "" {
+		return fmt.Sprintf(`<a href="%s" target="_blank">%s</a>`, uri, html.EscapeString(label))
+	}
 	return line
 }
-func repl(string) string {
-	return "$1"
+func inline(line string) string {
+	line = reInlineCheck.ReplaceAllString(line, `☆★$1★$2★$3★$4★$5★$6★$7★$8★$9★$10★$11★$12★$13★$14★$15★☆`)
+	line = reInlineConvert.ReplaceAllStringFunc(line, inlineConvert)
+	return line
+}
+
+//TODO
+func notation(line string) string {
+	return line
 }
 
 func tr(line string) string {
