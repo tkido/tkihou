@@ -24,7 +24,10 @@ var rePre = regexp.MustCompile(`^\t`)
 var reDl = regexp.MustCompile(`^:`)
 var reUl = regexp.MustCompile(`^-`)
 var reOl = regexp.MustCompile(`^\+`)
+var reTable = regexp.MustCompile(`^\|`)
+
 var reNotP = regexp.MustCompile(`^([*#\t:\-\+]|====|\{|\}|>>|<<|$)`)
+var reTableEnd = regexp.MustCompile(`\*$`)
 
 func convert(src string) {
 	f, err := os.Open(src)
@@ -78,6 +81,8 @@ func convert(src string) {
 			buf.Concat(list("ul", reUl, lines.TakeBlock(reUl)))
 		case reOl.MatchString(first):
 			buf.Concat(list("ol", reOl, lines.TakeBlock(reOl)))
+		case reTable.MatchString(first):
+			buf.Push(`<table border="1"><tbody align="center">`).Concat(lines.TakeBlock(reTable).Map(tr)).Push(`</tbody></table>`)
 		case !reNotP.MatchString(first):
 			buf.Push(`<p>`).Concat(lines.TakeBlockNot(reNotP).Map(paragraph)).Push(`</p>`)
 		default:
@@ -86,6 +91,27 @@ func convert(src string) {
 	}
 	content := buf.Join("\n")
 	execute(title, content)
+}
+
+func tr(line string) string {
+	buf := myarr.NewMyArr()
+	var tag string
+	if reTableEnd.MatchString(line) {
+		tag = `th`
+	} else {
+		tag = `td`
+	}
+	buf.Push(`<tr>`)
+	for _, col := range strings.Split(line, "|") {
+		if col == "" || col == "*" {
+			continue
+		}
+		buf.Push(fmt.Sprintf("<%s>", tag))
+		buf.Push(inline(col))
+		buf.Push(fmt.Sprintf("</%s>", tag))
+	}
+	buf.Push(`</tr>`)
+	return buf.Join("")
 }
 
 func list(tag string, re *regexp.Regexp, lines *myarr.MyArr) *myarr.MyArr {
@@ -121,14 +147,11 @@ func divOpen(line string) string {
 	}
 }
 
-func min(x, y int) int {
-	if x < y {
-		return x
-	}
-	return y
-}
 func headLine(line string) string {
-	level := min(2+strings.Count(line, "*"), 6)
+	level := 2 + strings.Count(line, "*")
+	if level > 6 {
+		level = 6
+	}
 	content := strings.Replace(line, "*", "", -1)
 	return fmt.Sprintf("<h%d>%s</h%d>", level, content, level)
 }
