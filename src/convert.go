@@ -113,10 +113,10 @@ var r = `
 `
 var reReComment = regexp.MustCompile(`(?m)(\s+)|(\#.*$)`)
 var reInlineCheck = regexp.MustCompile(reReComment.ReplaceAllString(r, ""))
-var reInlineConvert = regexp.MustCompile(`☆.+?☆`)
+var reInlineConvert = regexp.MustCompile(`《START》.+?《END》`)
 
 func inlineConvert(line string) string {
-	br := strings.Split(line, "★")
+	br := strings.Split(line, "《SEP》")
 	if em := br[1]; em != "" {
 		return fmt.Sprintf(`<em>%s</em>`, inline(em))
 	} else if strong := br[2]; strong != "" {
@@ -149,7 +149,7 @@ func inlineConvert(line string) string {
 	return line
 }
 func inline(line string) string {
-	line = reInlineCheck.ReplaceAllString(line, `☆★$1★$2★$3★$4★$5★$6★$7★$8★$9★$10★$11★$12★$13★$14★$15★☆`)
+	line = reInlineCheck.ReplaceAllString(line, `《START》《SEP》$1《SEP》$2《SEP》$3《SEP》$4《SEP》$5《SEP》$6《SEP》$7《SEP》$8《SEP》$9《SEP》$10《SEP》$11《SEP》$12《SEP》$13《SEP》$14《SEP》$15《SEP》《END》`)
 	line = reInlineConvert.ReplaceAllStringFunc(line, inlineConvert)
 	return line
 }
