@@ -21,6 +21,7 @@ var reDivClose = regexp.MustCompile(`^}`)
 var reBqOpen = regexp.MustCompile(`^>>`)
 var reBqClose = regexp.MustCompile(`^<<`)
 var rePre = regexp.MustCompile(`^\t`)
+var reDef = regexp.MustCompile(`^:`)
 var reNotParagraph = regexp.MustCompile(`^([*#\t:\-\+]|====|\{|\}|>>|<<|$)`)
 
 func convert(src string) {
@@ -69,6 +70,8 @@ func convert(src string) {
 			buf.Push(`</blockquote>`)
 		case rePre.MatchString(first):
 			buf.Push(`<pre><code>`).Concat(lines.TakeBlock(rePre).Map(html.EscapeString)).Push(`</pre></code>`)
+		case reDef.MatchString(first):
+			buf.Push(`<dl>`).Concat(lines.TakeBlock(reDef).Map(definition)).Push(`</dl>`)
 		case !reNotParagraph.MatchString(first):
 			buf.Push(`<p>`).Concat(lines.TakeBlockNot(reNotParagraph).Map(paragraph)).Push(`</p>`)
 		default:
@@ -90,6 +93,12 @@ func divOpen(line string) string {
 	}
 }
 
+func min(x, y int) int {
+	if x < y {
+		return x
+	}
+	return y
+}
 func headLine(line string) string {
 	level := min(2+strings.Count(line, "*"), 6)
 	content := strings.Replace(line, "*", "", -1)
@@ -103,10 +112,10 @@ func paragraph(line string) string {
 func inline(line string) string {
 	return line
 }
-
-func min(x, y int) int {
-	if x < y {
-		return x
+func definition(line string) string {
+	pair := strings.Split(line, ":")
+	if len(pair) != 2 {
+		log.Fatal("definition(): invalid argument")
 	}
-	return y
+	return fmt.Sprintf("<dt>%s</dt><dd>%s</dd>", inline(pair[0]), inline(pair[1]))
 }
