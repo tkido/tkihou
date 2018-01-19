@@ -104,8 +104,18 @@ func convert(src string) {
 
 var reEm = regexp.MustCompile(`\*\*(.+?)\*\*`)
 var reStrong = regexp.MustCompile(`\*(.+?)\*`)
+var reDel = regexp.MustCompile(`\-(.+?)\-`)
+var reU = regexp.MustCompile(`\_(.+?)\_`)
+var reI = regexp.MustCompile(`\\(.+?)\\`)
+var reQ = regexp.MustCompile(`>>(.+?)<<`)
 
 func inline(line string) string {
+	line = reEm.ReplaceAllString(line, `<em>$1</em>`)
+	line = reStrong.ReplaceAllString(line, `<strong>$1</strong>`)
+	line = reDel.ReplaceAllString(line, `<del>$1</del>`)
+	line = reU.ReplaceAllString(line, `<u>$1</u>`)
+	line = reI.ReplaceAllString(line, `<i>$1</i>`)
+	line = reQ.ReplaceAllString(line, `<q>$1</q>`)
 	return line
 }
 func repl(string) string {
