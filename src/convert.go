@@ -21,8 +21,10 @@ var reDivClose = regexp.MustCompile(`^}`)
 var reBqOpen = regexp.MustCompile(`^>>`)
 var reBqClose = regexp.MustCompile(`^<<`)
 var rePre = regexp.MustCompile(`^\t`)
-var reDef = regexp.MustCompile(`^:`)
-var reNotParagraph = regexp.MustCompile(`^([*#\t:\-\+]|====|\{|\}|>>|<<|$)`)
+var reDl = regexp.MustCompile(`^:`)
+var reUl = regexp.MustCompile(`^-`)
+var reOl = regexp.MustCompile(`^\+`)
+var reNotP = regexp.MustCompile(`^([*#\t:\-\+]|====|\{|\}|>>|<<|$)`)
 
 func convert(src string) {
 	f, err := os.Open(src)
@@ -70,16 +72,42 @@ func convert(src string) {
 			buf.Push(`</blockquote>`)
 		case rePre.MatchString(first):
 			buf.Push(`<pre><code>`).Concat(lines.TakeBlock(rePre).Map(html.EscapeString)).Push(`</pre></code>`)
-		case reDef.MatchString(first):
-			buf.Push(`<dl>`).Concat(lines.TakeBlock(reDef).Map(definition)).Push(`</dl>`)
-		case !reNotParagraph.MatchString(first):
-			buf.Push(`<p>`).Concat(lines.TakeBlockNot(reNotParagraph).Map(paragraph)).Push(`</p>`)
+		case reDl.MatchString(first):
+			buf.Push(`<dl>`).Concat(lines.TakeBlock(reDl).Map(definition)).Push(`</dl>`)
+		case reUl.MatchString(first):
+			buf.Concat(list("ul", reUl, lines.TakeBlock(reUl)))
+		case reOl.MatchString(first):
+			buf.Concat(list("ol", reOl, lines.TakeBlock(reOl)))
+		case !reNotP.MatchString(first):
+			buf.Push(`<p>`).Concat(lines.TakeBlockNot(reNotP).Map(paragraph)).Push(`</p>`)
 		default:
 			buf.Push(lines.Pop())
 		}
 	}
 	content := buf.Join("\n")
 	execute(title, content)
+}
+
+func list(tag string, re *regexp.Regexp, lines *myarr.MyArr) *myarr.MyArr {
+	buf := myarr.NewMyArr()
+	buf.Push(fmt.Sprintf("<%s>", tag))
+	close := false
+	for lines.Size() > 0 {
+		if re.MatchString(lines.First()) {
+			buf.Concat(list(tag, re, lines.TakeBlock(re)))
+		} else {
+			if close {
+				buf.Push(`</li>`)
+			}
+			close = true
+			buf.Push(`<li>`, inline(lines.Pop()))
+		}
+	}
+	if close {
+		buf.Push(`</li>`)
+	}
+	buf.Push(fmt.Sprintf("</%s>", tag))
+	return buf
 }
 
 func divOpen(line string) string {
