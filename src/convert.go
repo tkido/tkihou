@@ -2,6 +2,7 @@ package main
 
 import (
 	"bufio"
+	"bytes"
 	"fmt"
 	"html"
 	"log"
@@ -28,6 +29,14 @@ var reTable = regexp.MustCompile(`^\|`)
 
 var reNotP = regexp.MustCompile(`^([*#\t:\-\+]|====|\{|\}|>>|<<|$)`)
 var reTableEnd = regexp.MustCompile(`\*$`)
+
+var r = `
+  \*\*(.+?)\*\*                          # $1: em
+| \*(.+?)\*                              # $2: strong
+| \\\-(.+?)\-                            # $3: del
+`
+var reReComment = regexp.MustCompile(`(?m)(\s+)|(\#.*$)`)
+var reInline = regexp.MustCompile(reReComment.ReplaceAllString(r, ""))
 
 func convert(src string) {
 	f, err := os.Open(src)
@@ -93,25 +102,35 @@ func convert(src string) {
 	execute(title, content)
 }
 
+var reEm = regexp.MustCompile(`\*\*(.+?)\*\*`)
+var reStrong = regexp.MustCompile(`\*(.+?)\*`)
+
+func inline(line string) string {
+	return line
+}
+func repl(string) string {
+	return "$1"
+}
+
 func tr(line string) string {
-	buf := myarr.NewMyArr()
+	buf := bytes.Buffer{}
 	var tag string
 	if reTableEnd.MatchString(line) {
 		tag = `th`
 	} else {
 		tag = `td`
 	}
-	buf.Push(`<tr>`)
+	buf.WriteString(`<tr>`)
 	for _, col := range strings.Split(line, "|") {
 		if col == "" || col == "*" {
 			continue
 		}
-		buf.Push(fmt.Sprintf("<%s>", tag))
-		buf.Push(inline(col))
-		buf.Push(fmt.Sprintf("</%s>", tag))
+		buf.WriteString(fmt.Sprintf("<%s>", tag))
+		buf.WriteString(inline(col))
+		buf.WriteString(fmt.Sprintf("</%s>", tag))
 	}
-	buf.Push(`</tr>`)
-	return buf.Join("")
+	buf.WriteString(`</tr>`)
+	return buf.String()
 }
 
 func list(tag string, re *regexp.Regexp, lines *myarr.MyArr) *myarr.MyArr {
@@ -157,12 +176,9 @@ func headLine(line string) string {
 }
 
 func paragraph(line string) string {
-	return line + `<br />`
+	return inline(line) + `<br />`
 }
 
-func inline(line string) string {
-	return line
-}
 func definition(line string) string {
 	pair := strings.Split(line, ":")
 	if len(pair) != 2 {
