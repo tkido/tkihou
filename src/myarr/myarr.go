@@ -3,6 +3,7 @@ package myarr
 import (
 	"log"
 	"regexp"
+	"strings"
 )
 
 // MyArr can push unshift etc.
@@ -25,9 +26,14 @@ func (p *MyArr) Concat(o *MyArr) *MyArr {
 // First is First
 func (p *MyArr) First() string {
 	if len(p.sl) == 0 {
-		log.Fatal("index out of bound")
+		log.Fatal("First(): index out of bound")
 	}
 	return p.sl[0]
+}
+
+// Join is Join
+func (p *MyArr) Join(seq string) string {
+	return strings.Join(p.sl, seq)
 }
 
 // Map is Map
@@ -67,6 +73,20 @@ func (p *MyArr) TakeBlock(re *regexp.Regexp) *MyArr {
 	for _, line := range p.sl {
 		if re.MatchString(line) {
 			buf.Push(re.ReplaceAllString(line, ""))
+		} else {
+			break
+		}
+	}
+	p.sl = p.sl[buf.Size():]
+	return buf
+}
+
+// TakeBlockNot is TakeBlockNot
+func (p *MyArr) TakeBlockNot(re *regexp.Regexp) *MyArr {
+	buf := NewMyArr()
+	for _, line := range p.sl {
+		if !re.MatchString(line) {
+			buf.Push(line)
 		} else {
 			break
 		}

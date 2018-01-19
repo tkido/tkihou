@@ -8,9 +8,20 @@ import (
 	"os"
 	"regexp"
 	"strings"
+
+	"./myarr"
 )
 
-var re = regexp.MustCompile(`^([*#\t:\-\+]|====|\{|\}|>>|<<|$)`)
+var reComment = regexp.MustCompile(`^#`)
+var reHr = regexp.MustCompile(`^====`)
+var reHeadLine = regexp.MustCompile(`^\*`)
+var reNotation = regexp.MustCompile(`^{{}}`)
+var reDivOpen = regexp.MustCompile(`^{`)
+var reDivClose = regexp.MustCompile(`^}`)
+var reBqOpen = regexp.MustCompile(`^>>`)
+var reBqClose = regexp.MustCompile(`^<<`)
+var rePre = regexp.MustCompile(`^\t`)
+var reNotParagraph = regexp.MustCompile(`^([*#\t:\-\+]|====|\{|\}|>>|<<|$)`)
 
 func convert(src string) {
 	f, err := os.Open(src)
@@ -19,92 +30,53 @@ func convert(src string) {
 		log.Fatal(err)
 	}
 	s := bufio.NewScanner(f)
-	lines := make([]string, 0, 128)
+	lines := myarr.NewMyArr()
 	for s.Scan() {
-		lines = append(lines, s.Text())
+		lines.Push(s.Text())
 	}
 	if s.Err() != nil {
 		log.Fatal(s.Err())
 	}
+	title := lines.Pop()
 
-	title, lines := lines[0], lines[1:]
+	buf := myarr.NewMyArr()
+	buf.Push(`<!--`, title, `-->`)
 
-	buf := make([]string, 0, 128)
-	buf = append(buf, "<!--", title, "-->")
-
-	tmp := make([]string, 0)
-
-	for len(lines) != 0 {
-		line := lines[0]
+	for lines.Size() > 0 {
+		first := lines.First()
 		switch {
-		case line == "":
-			lines = lines[1:]
-		case strings.HasPrefix(line, "#"):
-			tmp, lines = split(lines, "#")
-			buf = append(buf, "<!--")
-			buf = append(buf, mapString(tmp, pass)...)
-			buf = append(buf, "-->")
-		case strings.HasPrefix(line, "===="):
-			tmp, lines = split(lines, "====")
-			buf = append(buf, mapString(tmp, hr)...)
-		case strings.HasPrefix(line, "*"):
-			tmp, lines = split(lines, "*")
-			buf = append(buf, mapString(tmp, headline)...)
-		case strings.HasPrefix(line, "{{}}"): // notation
-			tmp, lines = split(lines, "{{}}")
-			buf = append(buf, mapString(tmp, pass)...)
-		case strings.HasPrefix(line, "{"):
-			tmp, lines = split(lines, "{")
-			buf = append(buf, mapString(tmp, divOpen)...)
-		case strings.HasPrefix(line, "}"):
-			tmp, lines = split(lines, "}")
-			buf = append(buf, mapString(tmp, divClose)...)
-		case strings.HasPrefix(line, ">>"):
-			tmp, lines = split(lines, ">>")
-			buf = append(buf, mapString(tmp, bqOpen)...)
-		case strings.HasPrefix(line, "<<"):
-			tmp, lines = split(lines, "<<")
-			buf = append(buf, mapString(tmp, bqClose)...)
-		case strings.HasPrefix(line, "\t"):
-			tmp, lines = split(lines, "\t")
-			buf = append(buf, "<pre><code>")
-			buf = append(buf, mapString(tmp, html.EscapeString)...)
-			buf = append(buf, "</pre></code>")
+		case first == "":
+			lines.Pop()
+		case reComment.MatchString(first):
+			buf.Push(`<!--`).Concat(lines.TakeBlock(reComment)).Push(`-->`)
+		case reHr.MatchString(first):
+			lines.Pop()
+			buf.Push(`<hr />`)
+		case reHeadLine.MatchString(first):
+			buf.Push(headLine(lines.Pop()))
+		case reNotation.MatchString(first):
+			buf.Push(lines.Pop()) //TODO
+		case reDivOpen.MatchString(first):
+			buf.Push(divOpen(lines.Pop()))
+		case reDivClose.MatchString(first):
+			lines.Pop()
+			buf.Push(`</div>`)
+		case reBqOpen.MatchString(first):
+			lines.Pop()
+			buf.Push(`<blockquote>`)
+		case reBqClose.MatchString(first):
+			lines.Pop()
+			buf.Push(`</blockquote>`)
+		case rePre.MatchString(first):
+			buf.Push(`<pre><code>`).Concat(lines.TakeBlock(rePre).Map(html.EscapeString)).Push(`</pre></code>`)
+		case !reNotParagraph.MatchString(first):
+			buf.Push(`<p>`).Concat(lines.TakeBlockNot(reNotParagraph).Map(paragraph)).Push(`</p>`)
 		default:
-			tmp, lines = splitParagraph(lines)
-			buf = append(buf, "<p>")
-			buf = append(buf, mapString(tmp, paragraph)...)
-			buf = append(buf, "</p>")
+			buf.Push(lines.Pop())
 		}
 	}
-
-	content := strings.Join(buf, "\n")
-
+	content := buf.Join("\n")
 	execute(title, content)
-}
-
-func split(lines []string, mark string) ([]string, []string) {
-	buf := make([]string, 0, 8)
-	for i, line := range lines {
-		if strings.HasPrefix(line, mark) {
-			buf = append(buf, strings.Replace(lines[i], mark, "", 1))
-		} else {
-			break
-		}
-	}
-	return buf, lines[len(buf):]
-}
-
-func splitParagraph(lines []string) ([]string, []string) {
-	buf := make([]string, 0, 8)
-	for _, line := range lines {
-		if !re.MatchString(line) {
-			buf = append(buf, line)
-		} else {
-			break
-		}
-	}
-	return buf, lines[len(buf):]
 }
 
 func divOpen(line string) string {
@@ -117,28 +89,15 @@ func divOpen(line string) string {
 		return `<div>`
 	}
 }
-func divClose(line string) string {
-	return `</div>`
-}
-func bqOpen(line string) string {
-	return `<blockquote>`
-}
-func bqClose(line string) string {
-	return `</blockquote>`
-}
-func headline(line string) string {
-	level := min(3+strings.Count(line, "*"), 6)
+
+func headLine(line string) string {
+	level := min(2+strings.Count(line, "*"), 6)
 	content := strings.Replace(line, "*", "", -1)
 	return fmt.Sprintf("<h%d>%s</h%d>", level, content, level)
 }
-func hr(line string) string {
-	return "<hr />"
-}
+
 func paragraph(line string) string {
 	return line + `<br />`
-}
-func pass(line string) string {
-	return line
 }
 
 func inline(line string) string {
@@ -150,12 +109,4 @@ func min(x, y int) int {
 		return x
 	}
 	return y
-}
-
-func mapString(x []string, f func(string) string) []string {
-	r := make([]string, len(x))
-	for i, e := range x {
-		r[i] = f(e)
-	}
-	return r
 }

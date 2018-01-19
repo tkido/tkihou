@@ -18,10 +18,16 @@ func TestConcat(t *testing.T) {
 func TestFirst(t *testing.T) {
 	arr := NewMyArr("1", "2", "3")
 	if got, want := arr.First(), "1"; got != want {
-		t.Errorf("First: got %v want %v", got, want)
+		t.Errorf("got %v want %v", got, want)
 	}
 }
 
+func TestJoin(t *testing.T) {
+	arr := NewMyArr("1", "2", "3")
+	if got, want := arr.Join(","), "1,2,3"; got != want {
+		t.Errorf("got %v want %v", got, want)
+	}
+}
 func TestMap(t *testing.T) {
 	want := NewMyArr("11", "22", "33")
 	got := NewMyArr("1", "2", "3")
@@ -72,6 +78,19 @@ func TestTakeBlock(t *testing.T) {
 	want := NewMyArr("1", "2")
 	wantRest := NewMyArr("3", "4")
 	got := arr.TakeBlock(re)
+	if !reflect.DeepEqual(want, got) {
+		t.Errorf("got %v want %v", got, want)
+	}
+	if !reflect.DeepEqual(wantRest, arr) {
+		t.Errorf("got %v want %v", arr, wantRest)
+	}
+}
+func TestTakeBlockNot(t *testing.T) {
+	re := regexp.MustCompile(`^#`)
+	arr := NewMyArr("1", "2", "#3", "#4")
+	want := NewMyArr("1", "2")
+	wantRest := NewMyArr("#3", "#4")
+	got := arr.TakeBlockNot(re)
 	if !reflect.DeepEqual(want, got) {
 		t.Errorf("got %v want %v", got, want)
 	}
