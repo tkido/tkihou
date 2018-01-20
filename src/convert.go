@@ -105,53 +105,74 @@ var r = `
 | \{(.+?)\}                      # $7: notation
 | \[([^;]+?);w\]                 # $8: wikipedia
 | \[([^;]+?);g\]                 # $9: google
-| \[([^;]+?);nd\]                # $10: nico_dic
+| \[([^;]+?);nd\]                # $10: niconico dictionary
 | \[([^;]+?);ej\]                # $11: weblio
 | \[([0-9^;]+?);y\]              # $12: yahoo finance Japan
 | \[([A-Z^;]+?);y\]              # $13: yahoo finance America
-| \[([^;]+?);(https?://.+?)\]    # $14:label, $15: URI
+| \[([^;]+?);(https?://.+?)\]    # $14: label, $15: URI
 `
 var reReComment = regexp.MustCompile(`(?m)(\s+)|(\#.*$)`)
-var reInlineCheck = regexp.MustCompile(reReComment.ReplaceAllString(r, ""))
-var reInlineConvert = regexp.MustCompile(`《START》.+?《END》`)
+var reInline = regexp.MustCompile(reReComment.ReplaceAllString(r, ""))
 
-func inlineConvert(line string) string {
-	br := strings.Split(line, "《SEP》")
-	if em := br[1]; em != "" {
-		return fmt.Sprintf(`<em>%s</em>`, inline(em))
-	} else if strong := br[2]; strong != "" {
-		return fmt.Sprintf(`<strong>%s</strong>`, inline(strong))
-	} else if del := br[3]; del != "" {
-		return fmt.Sprintf(`<del>%s</del>`, inline(del))
-	} else if u := br[4]; u != "" {
-		return fmt.Sprintf(`<u>%s</u>`, inline(u))
-	} else if i := br[5]; i != "" {
-		return fmt.Sprintf(`<i>%s</i>`, inline(i))
-	} else if q := br[6]; q != "" {
-		return fmt.Sprintf(`<q>%s</q>`, inline(q))
-	} else if nota := br[7]; nota != "" {
-		return notation(nota)
-	} else if wikipedia := br[8]; wikipedia != "" {
-		return fmt.Sprintf(`<a href="http://ja.wikipedia.org/wiki/%s" target="_blank">%s</a>`, url.PathEscape(wikipedia), html.EscapeString(wikipedia))
-	} else if google := br[9]; google != "" {
-		return fmt.Sprintf(`<a href="http://www.google.com/search?num=50&hl=ja&q=%s&lr=lang_ja" target="_blank">%s</a>`, url.PathEscape(google), html.EscapeString(google))
-	} else if nicodic := br[10]; nicodic != "" {
-		return fmt.Sprintf(`<a href="http://dic.nicovideo.jp/a/%s" target="_blank">%s</a>`, url.PathEscape(nicodic), html.EscapeString(nicodic))
-	} else if weblio := br[11]; weblio != "" {
-		return fmt.Sprintf(`<a href="http://ejje.weblio.jp/content/%s" target="_blank">%s</a>`, url.PathEscape(weblio), html.EscapeString(weblio))
-	} else if codeJp := br[12]; codeJp != "" {
-		return fmt.Sprintf(`<a href="http://stocks.finance.yahoo.co.jp/stocks/detail/?code=%s" target="_blank">%s</a>`, url.PathEscape(codeJp), html.EscapeString(codeJp))
-	} else if codeUs := br[13]; codeUs != "" {
-		return fmt.Sprintf(`<a href="http://finance.yahoo.com/q?s=%s" target="_blank">%s</a>`, url.PathEscape(codeUs), html.EscapeString(codeUs))
-	} else if label, uri := br[14], br[15]; label != "" {
-		return fmt.Sprintf(`<a href="%s" target="_blank">%s</a>`, uri, html.EscapeString(label))
+func inlineConvert(index int, s string) string {
+	switch index {
+	case 1: // em
+		return fmt.Sprintf(`<em>%s</em>`, inline(s))
+	case 2: // strong
+		return fmt.Sprintf(`<strong>%s</strong>`, inline(s))
+	case 3: // del
+		return fmt.Sprintf(`<del>%s</del>`, inline(s))
+	case 4: // u
+		return fmt.Sprintf(`<u>%s</u>`, inline(s))
+	case 5: // i
+		return fmt.Sprintf(`<i>%s</i>`, inline(s))
+	case 6: // q
+		return fmt.Sprintf(`<q>%s</q>`, inline(s))
+	case 7: // notation
+		return notation(s)
+	case 8: // wikipedia
+		return fmt.Sprintf(`<a href="http://ja.wikipedia.org/wiki/%s" target="_blank">%s</a>`, url.PathEscape(s), html.EscapeString(s))
+	case 9: // google
+		return fmt.Sprintf(`<a href="http://www.google.com/search?num=50&hl=ja&q=%s&lr=lang_ja" target="_blank">%s</a>`, url.PathEscape(s), html.EscapeString(s))
+	case 10: // niconico dictionary
+		return fmt.Sprintf(`<a href="http://dic.nicovideo.jp/a/%s" target="_blank">%s</a>`, url.PathEscape(s), html.EscapeString(s))
+	case 11: // weblio
+		return fmt.Sprintf(`<a href="http://ejje.weblio.jp/content/%s" target="_blank">%s</a>`, url.PathEscape(s), html.EscapeString(s))
+	case 12: // yahoo finance Japan
+		return fmt.Sprintf(`<a href="http://stocks.finance.yahoo.co.jp/stocks/detail/?code=%s" target="_blank">%s</a>`, url.PathEscape(s), html.EscapeString(s))
+	case 13: // yahoo finance America
+		return fmt.Sprintf(`<a href="http://finance.yahoo.com/q?s=%s" target="_blank">%s</a>`, url.PathEscape(s), html.EscapeString(s))
+	default:
+		return s
 	}
-	return line
 }
+
 func inline(line string) string {
-	line = reInlineCheck.ReplaceAllString(line, `《START》《SEP》$1《SEP》$2《SEP》$3《SEP》$4《SEP》$5《SEP》$6《SEP》$7《SEP》$8《SEP》$9《SEP》$10《SEP》$11《SEP》$12《SEP》$13《SEP》$14《SEP》$15《SEP》《END》`)
-	line = reInlineConvert.ReplaceAllStringFunc(line, inlineConvert)
-	return line
+	buf := bytes.Buffer{}
+	anchor := 0
+	sms := reInline.FindAllStringSubmatchIndex(line, -1)
+	for _, sm := range sms {
+		if sm[0] == -1 {
+			continue
+		}
+		buf.WriteString(line[anchor:sm[0]])
+		anchor = sm[1]
+		for i := 1; i <= 14; i++ {
+			if sm[2*i] != -1 {
+				if i == 14 {
+					// $14:label, $15: URI
+					label := line[sm[2*i]:sm[2*i+1]]
+					uri := line[sm[2*(i+1)]:sm[2*(i+1)+1]]
+					buf.WriteString(fmt.Sprintf(`<a href="%s" target="_blank">%s</a>`, uri, html.EscapeString(label)))
+				} else {
+					br := line[sm[2*i]:sm[2*i+1]]
+					buf.WriteString(inlineConvert(i, br))
+				}
+			}
+		}
+	}
+	buf.WriteString(line[anchor:len(line)])
+	return buf.String()
 }
 
 //TODO
