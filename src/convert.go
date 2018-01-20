@@ -164,14 +164,13 @@ func tr(line string) string {
 	var tag string
 	if reTableEnd.MatchString(line) {
 		tag = `th`
+		line = line[:len(line)-1]
 	} else {
 		tag = `td`
 	}
+	line = line[:len(line)-1]
 	buf.WriteString(`<tr>`)
 	for _, col := range strings.Split(line, "|") {
-		if col == "" || col == "*" {
-			continue
-		}
 		buf.WriteString(fmt.Sprintf("<%s>", tag))
 		buf.WriteString(inline(col))
 		buf.WriteString(fmt.Sprintf("</%s>", tag))
