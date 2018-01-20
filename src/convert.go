@@ -17,7 +17,7 @@ import (
 var reComment = regexp.MustCompile(`^#`)
 var reHr = regexp.MustCompile(`^====`)
 var reHeadLine = regexp.MustCompile(`^\*`)
-var reNotation = regexp.MustCompile(`^{{}}`)
+var reFootNote = regexp.MustCompile(`^{{}}`)
 var reDivOpen = regexp.MustCompile(`^{`)
 var reDivClose = regexp.MustCompile(`^}`)
 var reBqOpen = regexp.MustCompile(`^>>`)
@@ -62,7 +62,7 @@ func convert(src string) {
 			buf.Push(`<hr />`)
 		case reHeadLine.MatchString(first):
 			buf.Push(headLine(lines.Pop()))
-		case reNotation.MatchString(first):
+		case reFootNote.MatchString(first):
 			buf.Push(lines.Pop()) //TODO
 		case reDivOpen.MatchString(first):
 			buf.Push(divOpen(lines.Pop()))
@@ -144,6 +144,7 @@ func inlineConvert(br []string) string {
 	} else if label, uri := br[14], br[15]; label != "" && uri != "" {
 		return fmt.Sprintf(`<a href="%s" target="_blank">%s</a>`, uri, html.EscapeString(label))
 	}
+	log.Fatal("inlineConvert(): MUST NOT HAPPEN!!")
 	return br[0]
 }
 
