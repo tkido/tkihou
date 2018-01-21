@@ -1,7 +1,9 @@
 package myarr
 
 import (
+	"bufio"
 	"log"
+	"os"
 	"regexp"
 	"strings"
 )
@@ -65,6 +67,24 @@ func (p *MyArr) Push(arr ...string) *MyArr {
 // Size is Size
 func (p *MyArr) Size() int {
 	return len(p.sl)
+}
+
+// ReadLines is ReadLines
+func ReadLines(path string) *MyArr {
+	f, err := os.Open(path)
+	defer f.Close()
+	if err != nil {
+		log.Fatal(err)
+	}
+	s := bufio.NewScanner(f)
+	arr := NewMyArr()
+	for s.Scan() {
+		arr.Push(s.Text())
+	}
+	if s.Err() != nil {
+		log.Fatal(s.Err())
+	}
+	return arr
 }
 
 // TakeBlock is TakeBlock

@@ -1,7 +1,6 @@
 package main
 
 import (
-	"bufio"
 	"bytes"
 	"crypto/sha1"
 	"fmt"
@@ -9,7 +8,6 @@ import (
 	"io"
 	"log"
 	"net/url"
-	"os"
 	"regexp"
 	"strings"
 
@@ -38,19 +36,7 @@ var footNotes = []string{}
 var fnID = ""
 
 func convert(src string) {
-	f, err := os.Open(src)
-	defer f.Close()
-	if err != nil {
-		log.Fatal(err)
-	}
-	s := bufio.NewScanner(f)
-	lines := myarr.NewMyArr()
-	for s.Scan() {
-		lines.Push(s.Text())
-	}
-	if s.Err() != nil {
-		log.Fatal(s.Err())
-	}
+	lines := myarr.ReadLines(src)
 	title := lines.Pop()
 
 	footNotes = []string{}
@@ -161,6 +147,9 @@ func inlineConvert(br []string) string {
 }
 
 func inline(line string) string {
+	if flags.AutoLink {
+
+	}
 	return util.ReplaceAllStringFuncSubmatches(reInline, line, inlineConvert)
 }
 
