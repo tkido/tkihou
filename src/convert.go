@@ -1,6 +1,7 @@
 package main
 
 import (
+	"bufio"
 	"bytes"
 	"crypto/sha1"
 	"fmt"
@@ -8,6 +9,7 @@ import (
 	"io"
 	"log"
 	"net/url"
+	"os"
 	"regexp"
 	"strings"
 
@@ -35,7 +37,38 @@ var reTableEnd = regexp.MustCompile(`\*$`)
 var footNotes = []string{}
 var fnID = ""
 
+// AutoLink is AutoLink
+type AutoLink struct {
+	Label string
+	URI   string
+}
+
+var autoLinks []AutoLink
+
+func prepareAutoLinks() []AutoLink {
+	if !flags.AutoLink {
+		return []AutoLink{}
+	}
+	f, err := os.Open(autoLinkTxt)
+	defer f.Close()
+	if err != nil {
+		log.Fatal(err)
+	}
+	s := bufio.NewScanner(f)
+	autoLinks := []AutoLink{}
+	for s.Scan() {
+		pair := strings.Split(s.Text(), ",")
+		autoLink := AutoLink{pair[0], pair[1]}
+		autoLinks = append(autoLinks, autoLink)
+	}
+	if s.Err() != nil {
+		log.Fatal(s.Err())
+	}
+	return autoLinks
+}
+
 func convert(src string) {
+	autoLinks = prepareAutoLinks()
 	lines := myarr.ReadLines(src)
 	title := lines.Pop()
 
@@ -147,8 +180,9 @@ func inlineConvert(br []string) string {
 }
 
 func inline(line string) string {
-	if flags.AutoLink {
-
+	for _, a := range autoLinks {
+		new := fmt.Sprintf(`<a href="%s" target="_blank">%s</a>`, a.URI, a.Label)
+		line = strings.Replace(line, a.Label, new, -1)
 	}
 	return util.ReplaceAllStringFuncSubmatches(reInline, line, inlineConvert)
 }
@@ -225,7 +259,7 @@ func headLine(line string) string {
 		level = 6
 	}
 	content := strings.Replace(line, "*", "", -1)
-	return fmt.Sprintf("<h%d>%s</h%d>", level, content, level)
+	return fmt.Sprintf("<h%d>%s</h%d>", level, inline(content), level)
 }
 
 func paragraph(line string) string {
