@@ -23,12 +23,9 @@ func main() {
 	}
 	exec.Command(editor, rstTxt).Run()
 	fmt.Println("Editor Closed")
-	fmt.Println("THE END")
 }
 
 func watch(source string) {
-	// exec.Command(editor, source).Run()
-
 	watcher, _ := fsnotify.NewWatcher()
 	defer watcher.Close()
 	watcher.Add(source)

@@ -32,7 +32,10 @@ var reOl = regexp.MustCompile(`^\+`)
 var reTable = regexp.MustCompile(`^\|`)
 
 var reNotP = regexp.MustCompile(`^([*#\t:\-\+]|====|\{|\}|>>|<<|$)`)
+
 var reTableEnd = regexp.MustCompile(`\*$`)
+var reUnnecessaryBr = regexp.MustCompile(`<br />\n</p>`)
+var reUnnecessaryNr = regexp.MustCompile(`\n</li>`)
 
 var footNotes = []string{}
 var fnID = ""
@@ -58,6 +61,9 @@ func prepareAutoLinks() []AutoLink {
 	autoLinks := []AutoLink{}
 	for s.Scan() {
 		pair := strings.Split(s.Text(), ",")
+		if len(pair) != 2 {
+			log.Fatal("prepareAutoLinks(): invalid autoLink")
+		}
 		autoLink := AutoLink{pair[0], pair[1]}
 		autoLinks = append(autoLinks, autoLink)
 	}
@@ -123,6 +129,9 @@ func convert(src string) {
 		}
 	}
 	content := buf.Join("\n")
+	content = reUnnecessaryBr.ReplaceAllString(content, "\n</p>")
+	content = reUnnecessaryNr.ReplaceAllString(content, `</li>`)
+	content = strings.Replace(content, `～`, `〜`, -1)
 	execute(title, content)
 }
 
