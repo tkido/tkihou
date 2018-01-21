@@ -3,8 +3,10 @@ package main
 import (
 	"bufio"
 	"bytes"
+	"crypto/sha1"
 	"fmt"
 	"html"
+	"io"
 	"log"
 	"net/url"
 	"os"
@@ -32,8 +34,8 @@ var reTable = regexp.MustCompile(`^\|`)
 var reNotP = regexp.MustCompile(`^([*#\t:\-\+]|====|\{|\}|>>|<<|$)`)
 var reTableEnd = regexp.MustCompile(`\*$`)
 
-//var notations = bytes.Buffer{}
-//var fnID = ""
+var footNotes = []string{}
+var fnID = ""
 
 func convert(src string) {
 	f, err := os.Open(src)
@@ -51,8 +53,10 @@ func convert(src string) {
 	}
 	title := lines.Pop()
 
-	//notations = bytes.Buffer{}
-	//fnID = bytes.NewBuffer(sha1.Sum([]byte(title))).String()
+	footNotes = []string{}
+	h := sha1.New()
+	io.WriteString(h, title)
+	fnID = fmt.Sprintf("%x", h.Sum(nil))
 
 	buf := myarr.NewMyArr()
 	buf.Push(`<!--`, title, `-->`)
@@ -70,7 +74,8 @@ func convert(src string) {
 		case reHeadLine.MatchString(first):
 			buf.Push(headLine(lines.Pop()))
 		case reFootNote.MatchString(first):
-			buf.Push(lines.Pop()) //TODO
+			lines.Pop()
+			buf.Push(`<div class="footnote"><p>`).Push(strings.Join(footNotes, "\n")).Push(`</p></div>`)
 		case reDivOpen.MatchString(first):
 			buf.Push(divOpen(lines.Pop()))
 		case reDivClose.MatchString(first):
@@ -102,6 +107,7 @@ func convert(src string) {
 	execute(title, content)
 }
 
+var reReComment = regexp.MustCompile(`(?m)(\s+)|(\#.*$)`)
 var reInlineRaw = `
   \*\*(.+?)\*\*                  # $1: em
 | \*(.+?)\*                      # $2: strong
@@ -118,7 +124,6 @@ var reInlineRaw = `
 | \[([A-Z^;]+?);y\]              # $13: yahoo finance America
 | \[([^;]+?);(https?://.+?)\]    # $14: label, $15: URI
 `
-var reReComment = regexp.MustCompile(`(?m)(\s+)|(\#.*$)`)
 var reInline = regexp.MustCompile(reReComment.ReplaceAllString(reInlineRaw, ""))
 
 func inlineConvert(br []string) string {
@@ -135,7 +140,7 @@ func inlineConvert(br []string) string {
 	} else if q := br[6]; q != "" {
 		return fmt.Sprintf(`<q>%s</q>`, inline(q))
 	} else if notation := br[7]; notation != "" {
-		return addNotation(notation)
+		return addFootNote(notation)
 	} else if wikipedia := br[8]; wikipedia != "" {
 		return fmt.Sprintf(`<a href="http://ja.wikipedia.org/wiki/%s" target="_blank">%s</a>`, url.PathEscape(wikipedia), html.EscapeString(wikipedia))
 	} else if google := br[9]; google != "" {
@@ -159,9 +164,17 @@ func inline(line string) string {
 	return util.ReplaceAllStringFuncSubmatches(reInline, line, inlineConvert)
 }
 
-//TODO
-func addNotation(line string) string {
-	return line
+var reTag = regexp.MustCompile(`<.*?>`)
+
+func addFootNote(s string) string {
+	num := len(footNotes) + 1
+	content := inline(s)
+	footNote := fmt.Sprintf(`<a href="#%sfn%d" name="%sf%d">*%d</a>：%s<br />`, fnID, num, fnID, num, num, content)
+	footNotes = append(footNotes, footNote)
+	// titleは数字をマウスオーバーすると表示される注釈。タグは使えないので取り除く。
+	title := reTag.ReplaceAllString(content, "")
+	notation := fmt.Sprintf(`<span class="footnote"><a href="#%sf%d" name="%sfn%d" title="%s">*%d</a></span>`, fnID, num, fnID, num, title, num)
+	return notation
 }
 
 func tr(line string) string {
@@ -196,7 +209,7 @@ func list(tag string, re *regexp.Regexp, lines *myarr.MyArr) *myarr.MyArr {
 				buf.Push(`</li>`)
 			}
 			close = true
-			buf.Push(`<li>`, inline(lines.Pop()))
+			buf.Push(`<li>` + inline(lines.Pop()))
 		}
 	}
 	if close {
