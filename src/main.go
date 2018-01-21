@@ -22,10 +22,12 @@ func main() {
 		watch(source)
 	}
 	exec.Command(editor, rstTxt).Run()
+	fmt.Println("Editor Closed")
+	fmt.Println("THE END")
 }
 
 func watch(source string) {
-	exec.Command(editor, source).Run()
+	// exec.Command(editor, source).Run()
 
 	watcher, _ := fsnotify.NewWatcher()
 	defer watcher.Close()
@@ -40,12 +42,11 @@ func watch(source string) {
 		select {
 		case ev := <-watcher.Events:
 			if ev.Op&fsnotify.Write != 0 {
+				time.Sleep(time.Second / 10) // wait 0.1s for workaround
 				now := time.Now()
-				fmt.Println(ev)
-				// "Write" event within 0.5 second is regarded as duplicated.
-				if now.Sub(updated) > time.Second/2 {
+				// "Write" event within 2.0 second is regarded as duplicated.
+				if now.Sub(updated) > time.Second*2 {
 					convert(source)
-					fmt.Println("Converted!!")
 					updated = now
 				}
 			}
