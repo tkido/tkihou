@@ -32,6 +32,9 @@ var reTable = regexp.MustCompile(`^\|`)
 var reNotP = regexp.MustCompile(`^([*#\t:\-\+]|====|\{|\}|>>|<<|$)`)
 var reTableEnd = regexp.MustCompile(`\*$`)
 
+//var notations = bytes.Buffer{}
+//var fnID = ""
+
 func convert(src string) {
 	f, err := os.Open(src)
 	defer f.Close()
@@ -47,6 +50,9 @@ func convert(src string) {
 		log.Fatal(s.Err())
 	}
 	title := lines.Pop()
+
+	//notations = bytes.Buffer{}
+	//fnID = bytes.NewBuffer(sha1.Sum([]byte(title))).String()
 
 	buf := myarr.NewMyArr()
 	buf.Push(`<!--`, title, `-->`)
@@ -133,15 +139,15 @@ func inlineConvert(br []string) string {
 	} else if wikipedia := br[8]; wikipedia != "" {
 		return fmt.Sprintf(`<a href="http://ja.wikipedia.org/wiki/%s" target="_blank">%s</a>`, url.PathEscape(wikipedia), html.EscapeString(wikipedia))
 	} else if google := br[9]; google != "" {
-		return fmt.Sprintf(`<a href="http://www.google.com/search?num=50&hl=ja&q=%s&lr=lang_ja" target="_blank">%s</a>`, url.PathEscape(google), html.EscapeString(google))
+		return fmt.Sprintf(`<a href="http://www.google.com/search?num=50&hl=ja&q=%s&lr=lang_ja" target="_blank">%s</a>`, url.QueryEscape(google), html.EscapeString(google))
 	} else if nicodic := br[10]; nicodic != "" {
 		return fmt.Sprintf(`<a href="http://dic.nicovideo.jp/a/%s" target="_blank">%s</a>`, url.PathEscape(nicodic), html.EscapeString(nicodic))
 	} else if weblio := br[11]; weblio != "" {
 		return fmt.Sprintf(`<a href="http://ejje.weblio.jp/content/%s" target="_blank">%s</a>`, url.PathEscape(weblio), html.EscapeString(weblio))
 	} else if codeJp := br[12]; codeJp != "" {
-		return fmt.Sprintf(`<a href="http://stocks.finance.yahoo.co.jp/stocks/detail/?code=%s" target="_blank">%s</a>`, url.PathEscape(codeJp), html.EscapeString(codeJp))
+		return fmt.Sprintf(`<a href="http://stocks.finance.yahoo.co.jp/stocks/detail/?code=%s" target="_blank">%s</a>`, url.QueryEscape(codeJp), html.EscapeString(codeJp))
 	} else if codeUs := br[13]; codeUs != "" {
-		return fmt.Sprintf(`<a href="http://finance.yahoo.com/q?s=%s" target="_blank">%s</a>`, url.PathEscape(codeUs), html.EscapeString(codeUs))
+		return fmt.Sprintf(`<a href="http://finance.yahoo.com/q?s=%s" target="_blank">%s</a>`, url.QueryEscape(codeUs), html.EscapeString(codeUs))
 	} else if label, uri := br[14], br[15]; label != "" && uri != "" {
 		return fmt.Sprintf(`<a href="%s" target="_blank">%s</a>`, uri, html.EscapeString(label))
 	}
