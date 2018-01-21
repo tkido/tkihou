@@ -85,13 +85,7 @@
          <div class="entry"> 
 		    {{.Content}}
             <p class="submeta"> by <strong>木戸孝紀</strong> 
-        		 tags:<a href="http://tkido.com/blog/tag/%e8%a8%80%e8%aa%9e" rel="tag">言語</a> <a href="http://tkido.com/blog/tag/%e6%9b%b8%e8%a9%95" rel="tag">書評</a> <a href="http://tkido.com/blog/tag/%e8%aa%ad%e6%9b%b8" rel="tag">読書</a> <a href="http://tkido.com/blog/tag/%e6%96%87%e7%ab%a0" rel="tag">文章</a>            <a class="post-edit-link" href="http://tkido.com/blog/wp-admin/" title="投稿の編集">[編集]</a>            <!-- AddClips Code START --> 
-                <a href='http://www.addclips.org/addclips.php' onclick='AddClipsUrl = "http://tkido.com/blog/1012.html"; AddClipsTitle = "ショウペンハウエル『読書について 他二篇』 神は細部に宿り給う"; return AddClipsWindow(this);' target='_blank'> 
-                    <img title='ブックマークに追加する' alt='ブックマークに追加する' border='0' height='16' src='http://img.addclips.org/addclips_0.gif' style='vertical-align:middle; float:none;' width='141'/> 
-                </a> 
-                <script type='text/javascript'>var AddClipsId = '1A71CFE0D97CC';</script> 
-                <script src='http://www.addclips.org/addclips.js' type='text/javascript'></script> 
-                <!-- AddClips Code END --> 
+        		 tags:<a href="http://tkido.com/blog/tag/%e8%a8%80%e8%aa%9e" rel="tag">言語</a> <a href="http://tkido.com/blog/tag/%e6%9b%b8%e8%a9%95" rel="tag">書評</a> <a href="http://tkido.com/blog/tag/%e8%aa%ad%e6%9b%b8" rel="tag">読書</a> <a href="http://tkido.com/blog/tag/%e6%96%87%e7%ab%a0" rel="tag">文章</a>            <a class="post-edit-link" href="http://tkido.com/blog/wp-admin/" title="投稿の編集">[編集]</a>
              </p> 
          </div><!--/entry --> 
          
@@ -446,7 +440,7 @@
             <strong>木戸孝紀</strong><br /> 
             <img alt="mail" src="http://tkido.com/blog/wp-content/fc2images/takanorikido.png" /><br /> 
             <!--ゲーム・Web・情報通信・プログラミング・政治・経済・社会・科学・哲学・その他諸々なんでも思いつくままに書いていきます。--> 
-            <div style="width:176px;text-align:center"><embed src="http://twitter.com/flash/twitter_badge.swf"  flashvars="color1=6737151&type=user&id=9012512"  quality="high" width="176" height="176" name="twitter_badge" align="middle" allowScriptAccess="always" wmode="transparent" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" /><br><a style="font-size: 10px; color: #66CCFF; text-decoration: none" href="http://twitter.com/tkido">follow tkido at http://twitter.com</a></div> 
+            <div style="width:176px;text-align:center"><br><a style="font-size: 10px; color: #66CCFF; text-decoration: none" href="http://twitter.com/tkido">follow tkido at http://twitter.com</a></div> 
         </div> 
       </div> 
       <!--sidebox end --> 
