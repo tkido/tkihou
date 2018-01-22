@@ -20,8 +20,7 @@ func main() {
 	if flags.Watch {
 		watch(source)
 	}
-	exec.Command(editor, rstTxt).Run()
-	fmt.Println("Editor Closed")
+	exec.Command(editor, rstTxt).Start()
 }
 
 func watch(source string) {
