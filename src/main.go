@@ -18,7 +18,6 @@ func main() {
 	exec.Command(chrome, rstHTML).Run()
 
 	if flags.Watch {
-		log.Println("Watching...")
 		watch(source)
 	}
 	exec.Command(editor, rstTxt).Run()
@@ -29,12 +28,18 @@ func watch(source string) {
 	watcher, _ := fsnotify.NewWatcher()
 	defer watcher.Close()
 	watcher.Add(source)
+	updated := time.Now()
 
 	ch := make(chan os.Signal, 1)
 	signal.Notify(ch, syscall.SIGINT)
 
-	updated := time.Now()
+	quit := make(chan bool)
+	go func() {
+		fmt.Scanln()
+		quit <- true
+	}()
 
+	log.Println("Watching...")
 	for {
 		select {
 		case ev := <-watcher.Events:
@@ -53,6 +58,8 @@ func watch(source string) {
 			if s == syscall.SIGINT {
 				return
 			}
+		case <-quit:
+			return
 		}
 	}
 }
