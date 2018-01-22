@@ -8,6 +8,6 @@ const (
 	// path    = `C:\Users\tkido\Dropbox\Kami Data\ブログ\*.txt`
 	rstTxt      = "./result.txt"
 	rstHTML     = "./result.html"
-	tmplTxt     = "./wordpress_template.txt"
+	tmplTxt     = "./wordpress.txt"
 	autoLinkTxt = "./auto_links.txt"
 )
