@@ -49,6 +49,7 @@ func watch(source string) {
 				if now.Sub(updated) > time.Second*2 {
 					convert(source)
 					updated = now
+					log.Println("Converted!")
 				}
 			}
 		case err := <-watcher.Errors:
