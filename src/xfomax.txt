@@ -1,0 +1,827 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" /><link rel="shortcut icon" type="image/vnd.microsoft.icon" href="http://livedoor.blogimg.jp/xfomax/imgs/b/0/favicon.ico" /><link rel="icon" href="http://livedoor.blogimg.jp/xfomax/imgs/b/0/b091f001.png" />
+<link rel="stylesheet" href="http://parts.blog.livedoor.jp/css/template.css?v=20160701" type="text/css" />
+<link rel="stylesheet" href="http://foma.blog.jp/site.css?_=20170630154547" type="text/css" /><link rel="alternate" type="application/rss+xml" title="RSS" href="http://foma.blog.jp/index.rdf" />
+<link rel="alternate" type="application/atom+xml" title="Atom" href="http://foma.blog.jp/atom.xml" /><link rel="canonical" href="http://foma.blog.jp/1066333079.html" /><link rel="openid.server" href="http://auth.livedoor.com/openid/server" /><link rel="openid.delegate" href="http://profile.livedoor.com/xfomax/" />
+<link rel="mixi-check-alternate" media="mixi-device-mobile" type="text/html" href="http://foma.m.blog.jp/article/1066333079" />
+<link rel="mixi-check-alternate" media="mixi-device-smartphone" type="text/html" href="http://foma.blog.jp/" />
+<link rel="alternate" media="handheld" type="application/xhtml+xml" href="http://foma.blog.jp/" />
+
+<title>トマスの疑い深い資産運用 : テスト</title>
+
+</head>
+<body class="default_2008 article">
+<a name="top"></a>
+<!-- ............... Header ............... -->
+<!-- Blog Common Header // -->
+<!-- // Blog Common Header -->
+
+
+<!-- ............... Container ............... -->
+<div id="container">
+
+<!-- ..... Title ..... -->
+<div class="blog-title-outer">
+<div class="blog-title-outer-2">
+<div class="blog-title-outer-3">
+	<h1 id="blog-title"><a href="http://foma.blog.jp/" title="トマスの疑い深い資産運用 トップへ">トマスの疑い深い資産運用</a></h1>
+	<div class="blog-description-outer"><p id="blog-description">★☆ただいまテスト中☆★★☆ただいまテスト中☆★★☆ただいまテスト中☆★</p></div>
+</div>
+</div>
+
+</div>
+
+<div id="content" class="hfeed">
+<!-- ..... MainColumn ..... -->
+<div id="main" class="column">
+
+<div class="column-inner">
+<div class="column-inner-2">
+
+<!-- Article Pager // -->
+  <div class="pager article-pager-type2">
+    <div class="pager-inner">
+    <div class="article-pager-outer">
+    <ul class="article-pager"><li class="prev"><a rel="prev" href="http://foma.blog.jp/1067478124.html" title="本多静六『人生と財産―私の財産告白』">&lt; 本多静六『人生と財産―私の財産告白』</a></li><li class="next both"><a rel="next" href="http://foma.blog.jp/1066365102.html" title="ジェラルド・M・ローブ『投資を生き抜くための戦い』序論">ジェラルド・M・ローブ『投資を生き抜くための戦い』序論 &gt;</a></li>    </ul>
+    </div>
+    </div>
+  </div>
+<!-- // Article Pager -->
+
+<div id="ad_rs" class="ad_rs_b"></div>
+<div class="article-outer hentry">
+<div class="article-outer-2">
+<div class="article-outer-3">
+<!-- google_ad_section_start -->
+	<div class="article-header">
+		<div class="article-date-outer">
+			<abbr class="updated" title="2017-06-17T10:03:44+0900"><span class="article-date">1979年09月07日</span><span class="article-time">18:00</span></abbr>
+		</div>
+		<div class="article-title-outer">
+			<h2 class="article-title entry-title"><a href="" title="個別記事ページへ" rel="bookmark">{{.Title}}</a></h2>
+		</div>
+		<div class="article-category-outer">
+			<dl class="article-category"><dt>カテゴリ</dt><dd class="article-category"><a href="http://foma.blog.jp/cat/225159.html" title="カテゴリアーカイブへ">投資哲学</a></dd></dl>
+		</div>
+
+		<div class="article-tool-box-header">
+		<ul class="article-meta">
+			<li class="article-author vcard author"><a href="http://profile.livedoor.com/xfomax/" class="url"><img src="http://image.profile.livedoor.jp/icon/xfomax_60.gif" width="16" height="16" alt="疑い深いトマス" border="0" /><span class="nickname fn">xfomax</span></a></li>
+			<li class="article-comment-count"><a href="http://foma.blog.jp/1066333079.html#comments" title="コメント一覧へ">コメント 0</a></li>
+		</ul>
+		</div>
+
+	</div><!-- articleHeader End -->
+
+	<div class="article-body entry-content">
+		<div class="article-body-inner">
+			{{.Content}}
+		</div>
+		<div id="ldblog_related_articles_17f87288">
+
+<div class="related-articles ldblog_related_articles_17f87288" data-category-id="225159" data-article-rows="4">
+<h3>「投資哲学」カテゴリの最新記事</h3>
+<ul id="ldblog_related_articles_17f87288_225159"></ul>
+</div>
+</div>
+		<dl class="article-tags"><dt>タグ ：</dt><dd><a href="http://foma.blog.jp/tag/%E5%BF%83%E7%90%86%E4%BC%9A%E8%A8%88" title="心理会計 タグの一覧へ">心理会計</a></dd><dd><a href="http://foma.blog.jp/tag/%E4%BA%8C%E9%87%8D%E6%80%9D%E8%80%83" title="二重思考 タグの一覧へ">二重思考</a></dd><dd><a href="http://foma.blog.jp/tag/magic" title="magic タグの一覧へ">magic</a></dd><dd><a href="http://foma.blog.jp/tag/%E3%83%A1%E3%83%B3%E3%82%BF%E3%83%AB" title="メンタル タグの一覧へ">メンタル</a></dd><dd><a href="http://foma.blog.jp/tag/%E5%8B%A4%E5%80%B9%E8%B2%AF%E8%93%84" title="勤倹貯蓄 タグの一覧へ">勤倹貯蓄</a></dd><dd><a href="http://foma.blog.jp/tag/%E4%BA%80%E5%90%89" title="亀吉 タグの一覧へ">亀吉</a></dd></dl>
+
+	</div><!-- articleBody End -->
+<!-- google_ad_section_end -->
+
+	<div class="article-footer">
+		<div class="article-post article-social-btn">
+		</div>
+	</div><!-- articleFooter End -->
+
+</div>
+</div>
+</div><!-- articleOuter End -->
+
+<!-- Article Pager // -->
+  <div class="pager article-pager-type2">
+    <div class="pager-inner">
+    <div class="article-pager-outer">
+    <ul class="article-pager"><li class="prev"><a rel="prev" href="http://foma.blog.jp/1067478124.html" title="本多静六『人生と財産―私の財産告白』">&lt; 本多静六『人生と財産―私の財産告白』</a></li><li class="next both"><a rel="next" href="http://foma.blog.jp/1066365102.html" title="ジェラルド・M・ローブ『投資を生き抜くための戦い』序論">ジェラルド・M・ローブ『投資を生き抜くための戦い』序論 &gt;</a></li>    </ul>
+    </div>
+    </div>
+  </div>
+<!-- // Article Pager -->
+
+</div>
+</div>
+</div><!-- mainColumn End -->
+
+<div id="sub" class="column">
+<div class="column-inner">
+<div class="column-inner-2">
+<!-- ..... PluginList A ..... -->
+
+
+
+
+<div class="plugin-twitter_profile sidewrapper">
+<div class="sidetop"></div>
+<div class="side">
+
+
+
+<div class="profile-header"><a href="https://twitter.com/xFOMAx" target="_blank"><span class="profile-avatar"><img src="http://pbs.twimg.com/profile_images/435032065684144128/zI4iEcCO_bigger.png"></span><span class="profile-name">疑い深いトマス</span><span class="profile-screen-name">@xFOMAx</span></a></div>
+<div class="profile-body">アラフォー日本人男性兼業個人投資家。日々勉強中です。</div>
+
+</div>
+<div class="sidebottom"></div>
+</div><!-- // plugin-twitter_profile -->
+
+<div class="plugin-search_internal sidewrapper">
+<div class="sidetitlebody">
+<div class="sidetitle">記事検索</div>
+</div>
+<div class="sidetop"></div>
+<div class="side">
+ <form action="http://foma.blog.jp/search" method="GET" style="padding:0;margin:0px;">
+ <input type="TEXT" name="q" class="sf">
+ <input type="SUBMIT" value="検索" class="sfbtn">
+ </form>
+</div>
+<div class="sidebottom"></div>
+</div><!-- // plugin-search_internal -->
+<div class="plugin-recent_articles sidewrapper">
+<div class="sidetitlebody">
+<div class="sidetitle">最新記事</div>
+</div>
+<div class="sidetop"></div>
+<div class="side">
+<div class="sidebody"><a href="http://foma.blog.jp/1068833743.html">GrizzlyGames『Superflight』★★★</a></div>
+
+<div class="sidebody"><a href="http://foma.blog.jp/1068833662.html">桜沢エリカ『かしこい私の外貨投資』★</a></div>
+
+<div class="sidebody"><a href="http://foma.blog.jp/1068810711.html">ジョン・ハンケ『ジョン・ハンケ 世界をめぐる冒険 グーグルアースからイングレス、そしてポケモンGOへ』★★</a></div>
+
+<div class="sidebody"><a href="http://foma.blog.jp/1068799844.html">オーディオブックは本当に良いものだけ繰り返し</a></div>
+
+<div class="sidebody"><a href="http://foma.blog.jp/1067478124.html">本多静六『人生と財産―私の財産告白』★★★★★</a></div>
+
+<div class="sidebody"><a href="http://foma.blog.jp/1067454906.html">山口揚平『なぜゴッホは貧乏で、ピカソは金持ちだったのか?』★★</a></div>
+
+<div class="sidebody"><a href="http://foma.blog.jp/1069236440.html">投資への前適応になるのは貧困・ギャンブル・ゲームあたりか？</a></div>
+
+<div class="sidebody"><a href="http://foma.blog.jp/1069318114.html">いつの間にか商品の容量が減る問題と貨幣錯覚</a></div>
+</div>
+<div class="sidebottom"></div>
+</div><!-- // plugin-recent_articles -->
+
+<div class="plugin-popular_articles sidewrapper">
+  <div class="sidetitlebody">
+    <div class="sidetitle">過去2週間の人気記事</div>
+  </div>
+  <div class="sidetop"></div>
+  <div class="side">
+
+
+    <div class="popular-articles">
+      <table id="populararticles-678486"></table>
+      <div class="popular-articles-freearea"></div>
+    </div>
+  </div>
+
+  <div class="sidebottom"></div>
+</div>
+
+</div>
+</div>
+</div><!-- subColumn End -->
+
+<div id="extra" class="column"> 
+<div class="column-inner">
+<div class="column-inner-2">
+<!-- ..... PluginList B ..... -->
+
+
+
+
+<div class="plugin-categorize sidewrapper" id="plugin-categorize-676824">
+    <div class="sidetitlebody">
+        <div class="sidetitle">カテゴリ</div>
+    </div>
+    <div class="sidetop"></div>
+    <div class="side">
+
+      
+
+    
+        
+        
+        <div class="sidebody category-parent"
+             
+          ><a href="http://foma.blog.jp/cat/1249738.html">書評・レビュー (587)</a>
+          
+          <a href="javascript:void(0)" class="category-toggle">[+]</a>
+          
+        </div>
+        
+    
+        
+        
+        <div class="sidebody category-child"
+             style="display:none;"
+          ><a href="http://foma.blog.jp/cat/230470.html">書評 (568)</a>
+          
+        </div>
+        
+    
+        
+        
+        <div class="sidebody category-child"
+             style="display:none;"
+          ><a href="http://foma.blog.jp/cat/1247748.html">オーディオブック (9)</a>
+          
+        </div>
+        
+    
+        
+        
+        <div class="sidebody category-child"
+             style="display:none;"
+          ><a href="http://foma.blog.jp/cat/1249712.html">テレビ・映画・動画 (2)</a>
+          
+        </div>
+        
+    
+        
+        
+        <div class="sidebody category-child"
+             style="display:none;"
+          ><a href="http://foma.blog.jp/cat/1249739.html">ゲーム (8)</a>
+          
+        </div>
+        
+    
+        
+        
+        <div class="sidebody category-parent"
+             
+          ><a href="http://foma.blog.jp/cat/207203.html">個別銘柄 (71)</a>
+          
+          <a href="javascript:void(0)" class="category-toggle">[+]</a>
+          
+        </div>
+        
+    
+        
+        
+        <div class="sidebody category-parent"
+             
+          ><a href="http://foma.blog.jp/cat/225159.html">投資哲学 (77)</a>
+          
+          <a href="javascript:void(0)" class="category-toggle">[+]</a>
+          
+        </div>
+        
+    
+        
+        
+        <div class="sidebody category-parent"
+             
+          ><a href="http://foma.blog.jp/cat/214373.html">目標・計画・記録 (61)</a>
+          
+          <a href="javascript:void(0)" class="category-toggle">[+]</a>
+          
+        </div>
+        
+    
+        
+        
+        <div class="sidebody category-parent"
+             
+          ><a href="http://foma.blog.jp/cat/244902.html">実地調査・定性分析 (47)</a>
+          
+          <a href="javascript:void(0)" class="category-toggle">[+]</a>
+          
+        </div>
+        
+    
+        
+        
+        <div class="sidebody category-parent"
+             
+          ><a href="http://foma.blog.jp/cat/223839.html">パフォーマンス (50)</a>
+          
+          <a href="javascript:void(0)" class="category-toggle">[+]</a>
+          
+        </div>
+        
+    
+        
+        
+        <div class="sidebody category-parent"
+             
+          ><a href="http://foma.blog.jp/cat/234514.html">環境・ツール・口座 (48)</a>
+          
+          <a href="javascript:void(0)" class="category-toggle">[+]</a>
+          
+        </div>
+        
+    
+        
+        
+        <div class="sidebody category-parent"
+             
+          ><a href="http://foma.blog.jp/cat/236274.html">経済・金融一般 (29)</a>
+          
+          <a href="javascript:void(0)" class="category-toggle">[+]</a>
+          
+        </div>
+        
+    
+        
+        
+        <div class="sidebody category-parent"
+             
+          ><a href="http://foma.blog.jp/cat/293366.html">個人投資家 (16)</a>
+          
+          <a href="javascript:void(0)" class="category-toggle">[+]</a>
+          
+        </div>
+        
+    
+        
+        
+        <div class="sidebody category-parent"
+             
+          ><a href="http://foma.blog.jp/cat/224605.html">倹約・節約・貯蓄 (21)</a>
+          
+          <a href="javascript:void(0)" class="category-toggle">[+]</a>
+          
+        </div>
+        
+    
+        
+        
+        <div class="sidebody category-parent"
+             
+          ><a href="http://foma.blog.jp/cat/412990.html">不動産 (11)</a>
+          
+          <a href="javascript:void(0)" class="category-toggle">[+]</a>
+          
+        </div>
+        
+    
+        
+        
+        <div class="sidebody category-parent"
+             
+          ><a href="http://foma.blog.jp/cat/273807.html">税・保険・401k (11)</a>
+          
+          <a href="javascript:void(0)" class="category-toggle">[+]</a>
+          
+        </div>
+        
+    
+        
+        
+        <div class="sidebody category-parent"
+             
+          ><a href="http://foma.blog.jp/cat/209787.html">ブログ・ネット・ネタ (9)</a>
+          
+          <a href="javascript:void(0)" class="category-toggle">[+]</a>
+          
+        </div>
+        
+    
+        
+        
+        <div class="sidebody category-parent"
+             
+          ><a href="http://foma.blog.jp/cat/243802.html">イベント・セミナー・オフ会 (4)</a>
+          
+          <a href="javascript:void(0)" class="category-toggle">[+]</a>
+          
+        </div>
+        
+    
+        
+        
+        <div class="sidebody category-parent"
+             
+          ><a href="http://foma.blog.jp/cat/1245198.html">読書ノート (50)</a>
+          
+          <a href="javascript:void(0)" class="category-toggle">[+]</a>
+          
+        </div>
+        
+    
+        
+        
+        <div class="sidebody category-child"
+             style="display:none;"
+          ><a href="http://foma.blog.jp/cat/1247008.html">投資を生き抜くための戦い (50)</a>
+          
+        </div>
+        
+    
+    
+    <script type="text/javascript" src="http://parts.blog.livedoor.jp/plugin/ldblog_categorize_foldable_plugin.js"></script>
+    <script type="text/javascript">new LDBlogCategorizePlugin('676824')</script>
+    
+
+    </div>    
+    <div class="sidebottom"></div>
+</div><!-- // plugin-categorize -->
+
+<div class="plugin-tag_cloud sidewrapper">
+<div class="sidetitlebody">
+<div class="sidetitle">タグクラウド</div>
+</div>
+<div class="sidetop"></div>
+<div class="side">
+<ul class="tagcloud">
+  <li class="tag-weight-1 tag-lifetime-4"><a href="http://foma.blog.jp/tag/2121" title="2121 タグの一覧へ">2121</a></li>
+   <li class="tag-weight-0 tag-lifetime-4"><a href="http://foma.blog.jp/tag/6200" title="6200 タグの一覧へ">6200</a></li>
+   <li class="tag-weight-0 tag-lifetime-4"><a href="http://foma.blog.jp/tag/AMZN" title="AMZN タグの一覧へ">AMZN</a></li>
+   <li class="tag-weight-0 tag-lifetime-4"><a href="http://foma.blog.jp/tag/IPO" title="IPO タグの一覧へ">IPO</a></li>
+   <li class="tag-weight-1 tag-lifetime-4"><a href="http://foma.blog.jp/tag/%E2%98%85" title="★ タグの一覧へ">★</a></li>
+   <li class="tag-weight-2 tag-lifetime-4"><a href="http://foma.blog.jp/tag/%E2%98%85%E2%98%85" title="★★ タグの一覧へ">★★</a></li>
+   <li class="tag-weight-2 tag-lifetime-4"><a href="http://foma.blog.jp/tag/%E2%98%85%E2%98%85%E2%98%85" title="★★★ タグの一覧へ">★★★</a></li>
+   <li class="tag-weight-1 tag-lifetime-4"><a href="http://foma.blog.jp/tag/%E2%98%85%E2%98%85%E2%98%85%E2%98%85" title="★★★★ タグの一覧へ">★★★★</a></li>
+   <li class="tag-weight-1 tag-lifetime-4"><a href="http://foma.blog.jp/tag/%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%85" title="★★★★★ タグの一覧へ">★★★★★</a></li>
+   <li class="tag-weight-0 tag-lifetime-4"><a href="http://foma.blog.jp/tag/%E3%82%AF%E3%83%AD%E3%82%B9" title="クロス タグの一覧へ">クロス</a></li>
+   <li class="tag-weight-0 tag-lifetime-4"><a href="http://foma.blog.jp/tag/%E3%82%B2%E3%83%BC%E3%83%A0" title="ゲーム タグの一覧へ">ゲーム</a></li>
+   <li class="tag-weight-0 tag-lifetime-4"><a href="http://foma.blog.jp/tag/%E3%82%B3%E3%83%9F%E3%83%83%E3%82%AF" title="コミック タグの一覧へ">コミック</a></li>
+   <li class="tag-weight-1 tag-lifetime-4"><a href="http://foma.blog.jp/tag/%E3%83%8E%E3%83%BC%E3%83%88" title="ノート タグの一覧へ">ノート</a></li>
+   <li class="tag-weight-1 tag-lifetime-4"><a href="http://foma.blog.jp/tag/%E3%83%91%E3%83%95%E3%82%A9%E3%83%BC%E3%83%9E%E3%83%B3%E3%82%B9" title="パフォーマンス タグの一覧へ">パフォーマンス</a></li>
+   <li class="tag-weight-0 tag-lifetime-4"><a href="http://foma.blog.jp/tag/%E3%83%A2%E3%83%B3%E3%82%B9%E3%83%88" title="モンスト タグの一覧へ">モンスト</a></li>
+   <li class="tag-weight-0 tag-lifetime-4"><a href="http://foma.blog.jp/tag/%E3%83%A9%E3%82%A4%E3%83%95%E3%83%8F%E3%83%83%E3%82%AF" title="ライフハック タグの一覧へ">ライフハック</a></li>
+   <li class="tag-weight-1 tag-lifetime-4"><a href="http://foma.blog.jp/tag/%E3%83%AD%E3%83%BC%E3%83%96" title="ローブ タグの一覧へ">ローブ</a></li>
+   <li class="tag-weight-1 tag-lifetime-4"><a href="http://foma.blog.jp/tag/%E4%B8%8D%E5%8B%95%E7%94%A3" title="不動産 タグの一覧へ">不動産</a></li>
+   <li class="tag-weight-0 tag-lifetime-4"><a href="http://foma.blog.jp/tag/%E5%80%8B%E4%BA%BA" title="個人 タグの一覧へ">個人</a></li>
+   <li class="tag-weight-0 tag-lifetime-4"><a href="http://foma.blog.jp/tag/%E5%80%B9%E7%B4%84" title="倹約 タグの一覧へ">倹約</a></li>
+   <li class="tag-weight-1 tag-lifetime-4"><a href="http://foma.blog.jp/tag/%E5%84%AA%E5%BE%85" title="優待 タグの一覧へ">優待</a></li>
+   <li class="tag-weight-0 tag-lifetime-4"><a href="http://foma.blog.jp/tag/%E5%BF%83%E7%90%86" title="心理 タグの一覧へ">心理</a></li>
+   <li class="tag-weight-4 tag-lifetime-4"><a href="http://foma.blog.jp/tag/%E6%9B%B8%E8%A9%95" title="書評 タグの一覧へ">書評</a></li>
+   <li class="tag-weight-1 tag-lifetime-4"><a href="http://foma.blog.jp/tag/%E6%9C%88%E6%AC%A1%E6%88%90%E7%B8%BE" title="月次成績 タグの一覧へ">月次成績</a></li>
+   <li class="tag-weight-0 tag-lifetime-4"><a href="http://foma.blog.jp/tag/%E6%AD%B4%E5%8F%B2" title="歴史 タグの一覧へ">歴史</a></li>
+   <li class="tag-weight-0 tag-lifetime-4"><a href="http://foma.blog.jp/tag/%E7%A8%8E%E9%87%91" title="税金 タグの一覧へ">税金</a></li>
+   <li class="tag-weight-0 tag-lifetime-4"><a href="http://foma.blog.jp/tag/%E7%B5%8C%E6%B8%88" title="経済 タグの一覧へ">経済</a></li>
+   <li class="tag-weight-0 tag-lifetime-4"><a href="http://foma.blog.jp/tag/%E8%87%AA%E5%B7%B1%E5%88%86%E6%9E%90" title="自己分析 タグの一覧へ">自己分析</a></li>
+   <li class="tag-weight-0 tag-lifetime-4"><a href="http://foma.blog.jp/tag/%E8%87%AA%E5%B7%B1%E5%95%93%E7%99%BA" title="自己啓発 タグの一覧へ">自己啓発</a></li>
+   <li class="tag-weight-0 tag-lifetime-4"><a href="http://foma.blog.jp/tag/%E8%A1%8C%E5%8B%95%E7%B5%8C%E6%B8%88" title="行動経済 タグの一覧へ">行動経済</a></li>
+ </ul>
+</div>
+<div class="sidebottom"></div>
+</div><!-- // plugin-tag_cloud -->
+
+<div class="plugin-recent_comments sidewrapper" id="recent_comments_697698">
+<div class="sidetitlebody">
+<div class="sidetitle">最新コメント</div>
+</div>
+<div class="sidetop"></div>
+<div class="side" id="recent_comments_697698_list" data-rows="4" data-order="">
+<script type="text/html" id="recent_comments_697698_tmpl">
+  <style>div.recent-comment-oneline div { display: inline-block }</style>
+<% for(var i=0,l=comments.length;i<l;i++) {%><% var n=(order==='ASC')?(l-1-i):i; %>
+<div class="sidebody">
+  <div class="recent-comment">
+    <div class="recent-comment-title"><a href="<%=comments[i].permalink%>#comments"><%==comments[n].title%></a></div>    <div class="recent-comment-author"><%==comments[n].author%></div>  </div>
+</div>
+<% } %>
+</script>
+</div>
+<div class="sidebottom"></div>
+<script type="text/javascript" src="http://parts.blog.livedoor.jp/js/recent_comments.js"></script>
+<script type="text/javascript">
+ var rc = new RecentComments('recent_comments_697698');
+ rc.render();
+</script>
+</div><!-- // plugin-recent_comments -->
+
+<div class="plugin-monthly sidewrapper" id="plugin-monthly-678488">
+<div class="sidetitlebody">
+<div class="sidetitle">月別アーカイブ</div>
+</div>
+<div class="sidetop"></div>
+<div class="side">
+
+
+<div class="sidebody"><a href="javascript:void(0)" class="year">2018</a>
+<a href="javascript:void(0)" class="toggleIndicator">[+]</a>
+<div style="display: none;" class="month">
+<div><a href="http://foma.blog.jp/2018/01.html">2018年01月</a></div>
+
+</div></div>
+<div class="sidebody"><a href="javascript:void(0)" class="year">2017</a>
+<a href="javascript:void(0)" class="toggleIndicator">[+]</a>
+<div style="display: none;" class="month">
+<div><a href="http://foma.blog.jp/2017/12.html">2017年12月</a></div>
+
+<div><a href="http://foma.blog.jp/2017/11.html">2017年11月</a></div>
+
+<div><a href="http://foma.blog.jp/2017/10.html">2017年10月</a></div>
+
+<div><a href="http://foma.blog.jp/2017/09.html">2017年09月</a></div>
+
+<div><a href="http://foma.blog.jp/2017/08.html">2017年08月</a></div>
+
+<div><a href="http://foma.blog.jp/2017/07.html">2017年07月</a></div>
+
+<div><a href="http://foma.blog.jp/2017/06.html">2017年06月</a></div>
+
+<div><a href="http://foma.blog.jp/2017/05.html">2017年05月</a></div>
+
+<div><a href="http://foma.blog.jp/2017/04.html">2017年04月</a></div>
+
+<div><a href="http://foma.blog.jp/2017/03.html">2017年03月</a></div>
+
+<div><a href="http://foma.blog.jp/2017/02.html">2017年02月</a></div>
+
+<div><a href="http://foma.blog.jp/2017/01.html">2017年01月</a></div>
+
+</div></div>
+<div class="sidebody"><a href="javascript:void(0)" class="year">2016</a>
+<a href="javascript:void(0)" class="toggleIndicator">[+]</a>
+<div style="display: none;" class="month">
+<div><a href="http://foma.blog.jp/2016/12.html">2016年12月</a></div>
+
+<div><a href="http://foma.blog.jp/2016/11.html">2016年11月</a></div>
+
+<div><a href="http://foma.blog.jp/2016/10.html">2016年10月</a></div>
+
+<div><a href="http://foma.blog.jp/2016/09.html">2016年09月</a></div>
+
+<div><a href="http://foma.blog.jp/2016/08.html">2016年08月</a></div>
+
+<div><a href="http://foma.blog.jp/2016/07.html">2016年07月</a></div>
+
+<div><a href="http://foma.blog.jp/2016/06.html">2016年06月</a></div>
+
+<div><a href="http://foma.blog.jp/2016/05.html">2016年05月</a></div>
+
+<div><a href="http://foma.blog.jp/2016/04.html">2016年04月</a></div>
+
+<div><a href="http://foma.blog.jp/2016/03.html">2016年03月</a></div>
+
+<div><a href="http://foma.blog.jp/2016/02.html">2016年02月</a></div>
+
+<div><a href="http://foma.blog.jp/2016/01.html">2016年01月</a></div>
+
+</div></div>
+<div class="sidebody"><a href="javascript:void(0)" class="year">2015</a>
+<a href="javascript:void(0)" class="toggleIndicator">[+]</a>
+<div style="display: none;" class="month">
+<div><a href="http://foma.blog.jp/2015/12.html">2015年12月</a></div>
+
+<div><a href="http://foma.blog.jp/2015/11.html">2015年11月</a></div>
+
+<div><a href="http://foma.blog.jp/2015/10.html">2015年10月</a></div>
+
+<div><a href="http://foma.blog.jp/2015/09.html">2015年09月</a></div>
+
+<div><a href="http://foma.blog.jp/2015/08.html">2015年08月</a></div>
+
+<div><a href="http://foma.blog.jp/2015/07.html">2015年07月</a></div>
+
+<div><a href="http://foma.blog.jp/2015/06.html">2015年06月</a></div>
+
+<div><a href="http://foma.blog.jp/2015/05.html">2015年05月</a></div>
+
+<div><a href="http://foma.blog.jp/2015/04.html">2015年04月</a></div>
+
+<div><a href="http://foma.blog.jp/2015/03.html">2015年03月</a></div>
+
+<div><a href="http://foma.blog.jp/2015/02.html">2015年02月</a></div>
+
+<div><a href="http://foma.blog.jp/2015/01.html">2015年01月</a></div>
+
+</div></div>
+<div class="sidebody"><a href="javascript:void(0)" class="year">2014</a>
+<a href="javascript:void(0)" class="toggleIndicator">[+]</a>
+<div style="display: none;" class="month">
+<div><a href="http://foma.blog.jp/2014/12.html">2014年12月</a></div>
+
+<div><a href="http://foma.blog.jp/2014/11.html">2014年11月</a></div>
+
+<div><a href="http://foma.blog.jp/2014/10.html">2014年10月</a></div>
+
+<div><a href="http://foma.blog.jp/2014/09.html">2014年09月</a></div>
+
+<div><a href="http://foma.blog.jp/2014/08.html">2014年08月</a></div>
+
+<div><a href="http://foma.blog.jp/2014/07.html">2014年07月</a></div>
+
+<div><a href="http://foma.blog.jp/2014/06.html">2014年06月</a></div>
+
+<div><a href="http://foma.blog.jp/2014/05.html">2014年05月</a></div>
+
+<div><a href="http://foma.blog.jp/2014/04.html">2014年04月</a></div>
+
+<div><a href="http://foma.blog.jp/2014/03.html">2014年03月</a></div>
+
+<div><a href="http://foma.blog.jp/2014/02.html">2014年02月</a></div>
+</div></div>
+<script src="http://parts.blog.livedoor.jp/plugin/ldblog_monthly_plugin.js"></script>
+<script type="text/javascript">new LDBlogMonthlyFoldablePlugin('678488')</script>
+
+</div>
+<div class="sidebottom"></div>
+</div><!-- // plugin-monthly -->
+
+<div class="plugin-memo sidewrapper">
+<div class="sidetitlebody">
+<div class="sidetitle">リンク集</div>
+</div>
+<div class="sidetop"></div>
+<div class="side">
+<div class="sidebody"><a href="http://www.araizumi.site/" target="_blank">休むも相場。</a></div>
+<div class="sidebody"><a href="http://kabu.96ut.com" target="_blank">IPO・新規公開株 – 株式・証券会社比較情報サイト 96ut.kabu</a></div>
+<div class="sidebody"><a href="https://plaza.rakuten.co.jp/iswallstreet/" target="_blank">堀古英司の「米国株式の魅力」</a></div>
+<div class="sidebody"><a href="http://apalog.com/kojima/" target="_blank">プロフェッサー小島健輔の言いたい放題（小島ファッションマーケティング代表）</a></div>
+<div class="sidebody"><a href="http://ameblo.jp/aqofbq/" target="_blank">日々是好日</a></div>
+<div class="sidebody"><a href="http://picul.hatenablog.jp/" target="_blank">資産防衛の日々</a></div>
+<div class="sidebody"><a href="http://www.netemate.net/" target="_blank">海外ETFで資産運用</a></div>
+<div class="sidebody"><a href="http://blog.livedoor.jp/sakkaku_investment/" target="_blank">ひとりごと of 中長期投資</a></div>
+<div class="sidebody"><a href="http://blog.livedoor.jp/norizou2005/" target="_blank">のりぞーの目指せ壱億円！</a></div>
+<div class="sidebody"><a href="http://indexdriver.blog.shinobi.jp/" target="_blank">インデックス・ドライバー</a></div>
+<div class="sidebody"><a href="http://cervorosso.blog.jp/" target="_blank">紅の鹿の日記</a></div>
+<div class="sidebody"><a href="http://ameblo.jp/kirito-99/" target="_blank">ゲーム銘柄で一攫千金（旧　短期トレードで勝ちを重ねる）</a></div>
+<div class="sidebody"><a href="http://plaza.rakuten.co.jp/100hajime/" target="_blank">鴨とネギの投資生活</a></div>
+<div class="sidebody"><a href="http://plaza.rakuten.co.jp/lodestar2006/" target="_blank">lodestar的投資日記</a></div>
+<div class="sidebody"><a href="http://blog.livedoor.jp/taipon777/" target="_blank">2020年への資産運用の旅 （インデックス投資の記録）</a></div>
+<div class="sidebody"><a href="http://blog.livedoor.jp/kabu2013/" target="_blank">若手サラリーマンのバリュー投資日記</a></div>
+<div class="sidebody"><a href="http://a1000miles.blog.fc2.com/" target="_blank">つなわたりのまいにち（専業投資家日記）</a></div>
+<div class="sidebody"><a href="http://plaza.rakuten.co.jp/kabu1000/" target="_blank">かぶ１０００投資日記</a></div>
+<div class="sidebody"><a href="http://markethack.net/" target="_blank">Market Hack</a></div>
+<div class="sidebody"><a href="http://ito1973.blogspot.com/" target="_blank">iFund運用報告書</a></div>
+<div class="sidebody"><a href="http://www.tdb.co.jp/tosan/jouhou.html" target="_blank">帝国データバンク 大型倒産速報</a></div>
+<div class="sidebody"><a href="http://kabukeizainani.blogspot.com/" target="_blank">株の話、経済の話、何の話だろう？</a></div>
+<div class="sidebody"><a href="http://takanoridayo.blog.shinobi.jp/" target="_blank">インターネット界隈の事を調べるお</a></div>
+<div class="sidebody"><a href="http://blog.livedoor.jp/ichonan-investment/" target="_blank">亀吉の投資メモ</a></div>
+<div class="sidebody"><a href="http://kameleon-kameleon.blogspot.com/" target="_blank">J.S.エコハのブログ</a></div>
+<div class="sidebody"><a href="http://ameblo.jp/trick-bz/" target="_blank">ウチナーサラリーマンの投資・グルメブログ</a></div>
+<div class="sidebody"><a href="http://plaza.rakuten.co.jp/mikimaru71/" target="_blank">みきまるの優待バリュー株日誌</a></div>
+<div class="sidebody"><a href="http://plaza.rakuten.co.jp/slowsheep/" target="_blank">雅の日記～お気楽生活をめざして</a></div>
+<div class="sidebody"><a href="http://rdsig.yahoo.co.jp/rss/l/blog/myblog/rss2/url/RV=1/RU=aHR0cDovL2Jsb2dzLnlhaG9vLmNvLmpwL2dvcm9udGFfdG91c2hp" target="_blank">小型株投資の日記</a></div>
+<div class="sidebody"><a href="http://moneytree7.blog48.fc2.com/" target="_blank">金のなる木を投資で増やそう</a></div>
+<div class="sidebody"><a href="http://rdsig.yahoo.co.jp/rss/l/blog/myblog/rss2/url/RV=1/RU=aHR0cDovL2Jsb2dzLnlhaG9vLmNvLmpwL3Nva3JhdGVzdmFsdWU-" target="_blank">キリギリスのように暮らし、アリのように蓄える</a></div>
+<div class="sidebody"><a href="http://blog.livedoor.jp/iorino11/" target="_blank">エセバリュー投資日記Ⅱ</a></div>
+<div class="sidebody"><a href="http://d.hatena.ne.jp/yomoyomo/" target="_blank">YAMDAS現更新履歴</a></div>
+<div class="sidebody"><a href="http://growth-stock.blog.jp/" target="_blank">成長株で億万長者</a></div>
+<div class="sidebody"><a href="http://plaza.rakuten.co.jp/kabuffet963/" target="_blank">GoldmanSacheeの優待株投資</a></div>
+<div class="sidebody"><a href="http://blog.livedoor.jp/harimau_kabu/" target="_blank">マ◯ーの虎　ハリマオの投資日記</a></div>
+<div class="sidebody"><a href="http://plaza.rakuten.co.jp/seiyan36/" target="_blank">投資逍遥</a></div>
+<div class="sidebody"><a href="http://stockbondcurrency.blog.fc2.com/" target="_blank">アダム・スミス２世の経済解説</a></div>
+<div class="sidebody"><a href="http://bunbai-yosou.blogspot.com/" target="_blank">いもらうの立会外分売 分析予想</a></div>
+<div class="sidebody"><a href="http://ameblo.jp/takechan/" target="_blank">ほいみんの　のんびり日記</a></div>
+<div class="sidebody"><a href="http://larkstongueaspic.blog.fc2.com/" target="_blank">アーリーリタイヤへの道</a></div>
+<div class="sidebody"><a href="http://noneedbuy.blog.fc2.com/" target="_blank">消費せず働きもしない未来を歩む遊民の独白</a></div>
+<div class="sidebody"><a href="http://blog.livedoor.jp/love_aeria/" target="_blank">東証Project</a></div>
+<div class="sidebody"><a href="http://blog.livedoor.jp/zawakamifund/" target="_blank">バリュー投資のすすめ　～思ってるやつと違うからな～</a></div>
+<div class="sidebody"><a href="http://mnt01.blogspot.com/" target="_blank">バフェット流バリュー株投資で資産形成＋</a></div>
+<div class="sidebody"><a href="http://atsumaro.doorblog.jp/" target="_blank">あつまろのこだわり資産運用</a></div>
+<div class="sidebody"><a href="http://100man1oku.main.jp/" target="_blank">100man1oku｜サラリーマンが株で100万円を1億円にするブログ</a></div>
+<div class="sidebody"><a href="http://value-ranking.seesaa.net/" target="_blank">個人投資家パフォーマンスランキング</a></div>
+<div class="sidebody"><a href="http://www.tsurao.com/" target="_blank">吊られた男の投資ブログ (インデックス投資)</a></div>
+<div class="sidebody"><a href="http://plaza.rakuten.co.jp/seigo182/" target="_blank">期待値で計るバリュー投資　無期限信用取引　有</a></div>
+<div class="sidebody"><a href="http://kabumatome.doorblog.jp/" target="_blank">市況かぶ全力２階建</a></div>
+<div class="sidebody"><a href="http://kabumoratorium.com/" target="_blank">モラトリアムサラリーマンの長期投資株ブログ</a></div>
+<div class="sidebody"><a href="http://kaeru.orio.jp/" target="_blank">かえるの気長な生活日記。</a></div>
+<div class="sidebody"><a href="http://mazyoshisystemlabo.tumblr.com/" target="_blank">多くの人には逆さに見えても #Investudy</a></div>
+<div class="sidebody"><a href="http://www.kablife.com/wp" target="_blank">株ライフブログ</a></div>
+<div class="sidebody"><a href="http://pension.blog88.fc2.com/" target="_blank">Passiveな投資とActiveな未来</a></div>
+<div class="sidebody"><a href="http://ameblo.jp/v-com2/" target="_blank">21世紀投資</a></div>
+<div class="sidebody"><a href="http://blog.livedoor.jp/kabu2oku/" target="_blank">サラリーマンが株式投資でセミリタイアを目指してみました。</a></div>
+<div class="sidebody"><a href="http://thehappyman.blog.fc2.com/" target="_blank">幸せなお金持ち的日記</a></div>
+<div class="sidebody"><a href="http://pooh2013.blog.fc2.com/" target="_blank">poohの毎日～40代アーリーリタイア夫婦の暮らし～</a></div>
+<div class="sidebody"><a href="http://rdsig.yahoo.co.jp/rss/l/blog/myblog/rss2/url/RV=1/RU=aHR0cDovL2Jsb2dzLnlhaG9vLmNvLmpwL3Rha2VuYWthMTIyMQ--" target="_blank">たけなか まさはる</a></div>
+<div class="sidebody"><a href="http://early-retire.com/" target="_blank">ヤマノ投信</a></div>
+<div class="sidebody"><a href="http://ipo-striker.com/" target="_blank">IPO初値予想/分析　IPOストライカーの投資ブログ！</a></div>
+<div class="sidebody"><a href="http://plaza.rakuten.co.jp/snoozer8888/" target="_blank">There is no free lunch</a></div>
+<div class="sidebody"><a href="http://oniwasblog.seesaa.net/" target="_blank">アーリーセミリタイア生活日記</a></div>
+<div class="sidebody"><a href="http://plaza.rakuten.co.jp/hidefund/" target="_blank">ひでファンド</a></div>
+<div class="sidebody"><a href="http://blog.livedoor.jp/ss2286234570/" target="_blank">スイングトレード ★ 日記.</a></div>
+<div class="sidebody"><a href="http://senninn.blog.fc2.com/" target="_blank">仙人の祈り</a></div>
+<div class="sidebody"><a href="http://kabuohazimeru.blog22.fc2.com/" target="_blank">株をはじめる前に読むブログ</a></div>
+<div class="sidebody"><a href="http://kibinago7777.blogspot.com/" target="_blank">株主優待と高配当株を買い続ける株式投資ブログ</a></div>
+<div class="sidebody"><a href="http://blog.goo.ne.jp/6_suke?fm=rss" target="_blank">ろくすけの長期投資の旅</a></div>
+<div class="sidebody"><a href="http://blog.livedoor.jp/hk_131/" target="_blank">コムストックの投機日記</a></div>
+<div class="sidebody"><a href="http://ningyocho.blogspot.com/" target="_blank">Porco Rosso Financial Weblog</a></div>
+<div class="sidebody"><a href="http://imolau.blog99.fc2.com/" target="_blank">いもらうの負けない投資　【分析で相場に勝つ】</a></div>
+<div class="sidebody"><a href="http://www.tachibana-akira.com/" target="_blank">橘玲 公式サイト</a></div>
+<div class="sidebody"><a href="http://dividendsnowball.blogspot.com/" target="_blank">「配当金を雪だるま式に増やす投資日記」Dividend Snowball Investing</a></div>
+<div class="sidebody"><a href="http://ameblo.jp/tetsu219/" target="_blank">しがないディーラーのブログ</a></div>
+<div class="sidebody"><a href="http://miyanokabu.blog.fc2.com/" target="_blank">みやの株主優待投資日記</a></div>
+<div class="sidebody"><a href="http://blog.livedoor.jp/agou2/" target="_blank">アゴウの日記</a></div>
+<div class="sidebody"><a href="http://genuinvest.net/" target="_blank">ホンネの資産運用セミナー（インデックス投資ブログ）</a></div>
+<div class="sidebody"><a href="http://masitan.blog.fc2.com/" target="_blank">本日の増担保規制解除ライン</a></div>
+<div class="sidebody"><a href="http://aketemiyo-akazunoma.doorblog.jp/" target="_blank">株式投資で資産、早期5000万円を目指す</a></div>
+<div class="sidebody"><a href="http://freepapa.enjyuku-blog.com/" target="_blank">てーげー投資ライフのすすめ！</a></div>
+<div class="sidebody"><a href="http://blog.livedoor.jp/setuyaku999/" target="_blank">かすみちゃんの株主優待日記</a></div>
+<div class="sidebody"><a href="http://www.money-motto.com/" target="_blank">もっとお金の話がしたい</a></div>
+<div class="sidebody"><a href="http://plaza.rakuten.co.jp/sooo0831/" target="_blank">白米っ式見せかけバリュー投資</a></div>
+<div class="sidebody"><a href="http://matsuwo2005.blogspot.com/" target="_blank">まつを。の投資日記</a></div>
+<div class="sidebody"><a href="http://bullbear.exblog.jp/" target="_blank">牛さん熊さんブログ</a></div>
+<div class="sidebody"><a href="http://investorduke.blog.fc2.com/" target="_blank">DUKE。のサーフィンインベストメント</a></div>
+<div class="sidebody"><a href="http://blog.livedoor.jp/avexfreak/" target="_blank">資金管理の掟</a></div>
+<div class="sidebody"><a href="http://etf-investment.com" target="_blank">フクリの海外ＥＴＦ長期投資ブログ</a></div>
+<div class="sidebody"><a href="http://kabu.96ut.com/" target="_blank">株式・証券会社比較情報サイト 96ut.kabu</a></div>
+<div class="sidebody"><a href="http://deskpower.blog80.fc2.com/" target="_blank">IPO初値予想ブログなら、キムさんのIPO投資日記</a></div>
+<div class="sidebody"><a href="http://kakeibo.lay-up.net/" target="_blank">家計＆資産管理マニュアル</a></div>
+<div class="sidebody"><a href="http://plaza.rakuten.co.jp/hananoyama/" target="_blank">偏屈たぬきのへそまがり投資日記</a></div>
+<div class="sidebody"><a href="http://kenbou-invest.blog.jp/" target="_blank">ケン坊の資産運用日記</a></div>
+<div class="sidebody"><a href="http://shirokatsufuji.blog.fc2.com/" target="_blank">勝藤史郎のブログ</a></div>
+<div class="sidebody"><a href="http://plaza.rakuten.co.jp/iswallstreet/" target="_blank">堀古英司の「米国株式の魅力」</a></div>
+<div class="sidebody"><a href="http://blog.goo.ne.jp/livin_on_a_prayer?fm=rss" target="_blank">映画を見ながら株式投資</a></div>
+<div class="sidebody"><a href="http://www.spotoushi.net/" target="_blank">すぽさん投資ぶろぐ</a></div>
+<div class="sidebody"><a href="http://aranami718.blog.fc2.com/" target="_blank">あらなみの里</a></div>
+<div class="sidebody"><a href="http://blog.livedoor.jp/vcom2/" target="_blank">21世紀投資の別館</a></div>
+<div class="sidebody"><a href="http://anti-index.blog.jp/" target="_blank">インデックス投資家からの脱却      （アンチインデックス）</a></div>
+<div class="sidebody"><a href="http://kabu-press.com/" target="_blank">「株価プレス」</a></div>
+<div class="sidebody"><a href="http://news830.com/" target="_blank">ニュース屋さん＠日本株式投資</a></div>
+<div class="sidebody"><a href="http://early-retire.com/" target="_blank">ヤマノ投信</a></div>
+<div class="sidebody"><a href="http://nots.hatenablog.com/" target="_blank">Not-So-News</a></div>
+<div class="sidebody"><a href="http://okanehadaiji.com/" target="_blank">マネーニュース2ch</a></div>
+<div class="sidebody"><a href="http://tryinvesting.blog.fc2.com/" target="_blank">中長期投資の練習記録</a></div>
+<div class="sidebody"><a href="http://lineblog.me/yamamotoichiro/" target="_blank">やまもといちろう</a></div>
+<div class="sidebody"><a href="http://ameblo.jp/okuyama-tukito/" target="_blank">エナフンさんの梨の木</a></div>
+<div class="sidebody"><a href="http://useusd.com/" target="_blank">ドル使いの海外投資</a></div>
+<div class="sidebody"><a href="http://blog.livedoor.jp/kessanderby/" target="_blank">決算ダービー</a></div>
+<div class="sidebody"><a href="http://value-investment.uekenweb.com" target="_blank">うえけんの株式投資おぼえ書き</a></div>
+<div class="sidebody"><a href="http://ameblo.jp/rayichijyo/" target="_blank">午後三時のジェットコースター　by　レイ</a></div>
+<div class="sidebody"><a href="http://kakky77.blog47.fc2.com/" target="_blank">株投資でマイホーム</a></div>
+<div class="sidebody"><a href="http://yasufx.com/" target="_blank">孤高のFX</a></div>
+<div class="sidebody"><a href="http://kabutomotaro.blog9.fc2.com/" target="_blank">リスクとリターンを見極める！</a></div>
+<div class="sidebody"><a href="http://yajyusan.hatenablog.com/" target="_blank">野獣株投資</a></div>
+<div class="sidebody"><a href="http://haitoukinseikatu.com/" target="_blank">ひとり配当金生活</a></div>
+<div class="sidebody"><a href="http://betseldom.blogspot.com/" target="_blank">節約発投資行き</a></div>
+<div class="sidebody"><a href="http://www.mogukabu.info/" target="_blank">戦略的投資思考</a></div>
+
+</div>
+<div class="sidebottom"></div>
+</div><!-- // plugin-memo -->
+
+<div class="plugin-memo sidewrapper">
+<div class="sidetitlebody">
+<div class="sidetitle">Google記事検索</div>
+</div>
+<div class="sidetop"></div>
+<div class="side">
+<form method=get action="http://www.google.co.jp/search">
+<input type=text name=q size=24 maxlength=255 value="">
+<input type=hidden name=ie value=UTF-8>
+<input type=hidden name=oe value=UTF-8>
+<input type=hidden name=hl value="ja">
+<input type=submit name=btnG value="検索">
+<input type=hidden name=domains value="foma.blog.jp"><br />
+<input type=hidden name=sitesearch value="foma.blog.jp" checked>
+
+
+</div>
+<div class="sidebottom"></div>
+</div><!-- // plugin-memo -->
+
+
+<link rel="stylesheet" type="text/css" href="http://parts.blog.livedoor.jp/css/plugins.css" media="screen,print" />
+<div class="plugin-daily_count sidewrapper">
+<div class="sidetitlebody">
+<div class="sidetitle">アクセスカウンタ</div>
+</div>
+<div class="sidetop"></div>
+<div class="side"><!-- plugin-content (counter) // -->
+
+
+<ul class="daily_count type_counter">
+<li class="count_today"><dl class="counter"><dt class="count_date">今日：</dt><dd id="today_c_678490"></dd></dl></li>
+<li class="count_yesterday"><dl class="counter"><dt class="count_date">昨日：</dt><dd id="yesterday_c_678490"></dd></dl></li>
+<li class="count_total"><dl class="counter"><dt class="count_date">累計：</dt><dd id="total_c_678490"></dd></dl></li>
+</ul>
+
+
+
+
+<p class="daily_count_free_area"></p>
+</div><!-- // plugin-content (counter) -->
+<div class="sidebottom"></div>
+</div><!-- // plugin-daily_count -->
+
+
+</div>
+</div>
+</div><!-- extraColumn End -->
+
+</div><!-- content End -->
+</div><!-- container End -->
+
+<!-- ................ Footer .................. -->
+<div class="footer-outer">
+<div class="footer-outer-2">
+<!-- Blog Common Footer // --><div id="footer"><p>Powered by <a href="http://blog.livedoor.com/" title="ライブドアブログ">ライブドアブログ</a></p></div><!-- // Blog Common Footer -->
+</div>
+</div>
+
+</body>
+</html>
