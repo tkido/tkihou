@@ -34,8 +34,6 @@ var reTable = regexp.MustCompile(`^\|`)
 var reNotP = regexp.MustCompile(`^([*#\t:\-\+]|====|\{|\}|>>|<<|$)`)
 
 var reTableEnd = regexp.MustCompile(`\*$`)
-var reUnnecessaryBr = regexp.MustCompile(`<br />\n</p>`)
-var reUnnecessaryNr = regexp.MustCompile(`\n</li>`)
 
 var footNotes = []string{}
 var fnID = ""
@@ -101,6 +99,7 @@ func convert(src string) {
 		case reFootNote.MatchString(first):
 			lines.Pop()
 			buf.Push(`<div class="footnote"><p>`).Push(strings.Join(footNotes, "\n")).Push(`</p></div>`)
+			footNotes = []string{}
 		case reDivOpen.MatchString(first):
 			buf.Push(divOpen(lines.Pop()))
 		case reDivClose.MatchString(first):
@@ -128,11 +127,21 @@ func convert(src string) {
 			buf.Push(lines.Pop())
 		}
 	}
-	content := buf.Join("\n")
-	content = reUnnecessaryBr.ReplaceAllString(content, "\n</p>")
-	content = reUnnecessaryNr.ReplaceAllString(content, `</li>`)
-	content = strings.Replace(content, `～`, `〜`, -1)
+	content := util.ReplaceAllStringFuncSubmatches(reClean, buf.Join("\n"), clean)
 	execute(title, content)
+}
+
+var reClean = regexp.MustCompile(`<br />(\n</p>)|\n(</li>)|(～)`)
+
+func clean(br []string) string {
+	if br[1] != "" {
+		return br[1]
+	} else if br[2] != "" {
+		return br[2]
+	} else if br[3] != "" {
+		return "〜"
+	}
+	return ""
 }
 
 var reReComment = regexp.MustCompile(`(?m)(\s+)|(\#.*$)`)
