@@ -45,8 +45,8 @@ func watch(source string) {
 			if ev.Op&fsnotify.Write != 0 {
 				time.Sleep(time.Second / 10) // wait 0.1s for workaround
 				now := time.Now()
-				// "Write" event within 2.0 second is regarded as duplicated.
-				if now.Sub(updated) > time.Second*2 {
+				// "Write" event within 0.5 second is regarded as duplicated.
+				if now.Sub(updated) > time.Second/2 {
 					convert(source)
 					updated = now
 					log.Println("Converted!")

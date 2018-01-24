@@ -161,7 +161,7 @@ var reInlineRaw = `
 | \[([0-9^;]+?);y\]              # $12: yahoo finance Japan
 | \[([A-Z^;]+?);y\]              # $13: yahoo finance America
 | \[([^;]+?);(https?://.+?)\]    # $14: label, $15: URI
-| ^<a\shref="https://www\.amazon\.co\.jp/gp/product/(.*?)</a>(.*)$ # $16, $17: xFOMAx's Amazon link
+| ^<a\shref="https://www\.amazon\.co\.jp/(.*?)</a>(.*)$ # $16, $17: xFOMAx's Amazon link
 `
 var reInline = regexp.MustCompile(reReComment.ReplaceAllString(reInlineRaw, ""))
 
@@ -196,7 +196,7 @@ func inlineConvert(br []string) string {
 		return fmt.Sprintf(`<a href="%s" target="_blank">%s</a>`, uri, html.EscapeString(label))
 	} else if br[16] != "" && br[17] != "" {
 		if flags.Thomas {
-			return fmt.Sprintf(`<a class="amazon" href="https://www.amazon.co.jp/gp/product/%s%s</a>`, br[16], br[17])
+			return fmt.Sprintf(`<a class="amazon" href="https://www.amazon.co.jp/%s%s</a>`, br[16], br[17])
 		}
 		return br[0] // not convert
 	}
