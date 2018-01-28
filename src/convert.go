@@ -74,7 +74,13 @@ func prepareAutoLinks() []AutoLink {
 func convert(src string) {
 	autoLinks = prepareAutoLinks()
 	lines := myarr.ReadLines(src)
-	title := lines.Pop()
+
+	var title string
+	if lines.Size() > 0 {
+		title = lines.Pop()
+	} else {
+		title = ""
+	}
 
 	footNotes = []string{}
 	h := sha1.New()

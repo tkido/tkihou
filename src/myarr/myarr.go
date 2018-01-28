@@ -51,7 +51,7 @@ func (p *MyArr) Map(f func(string) string) *MyArr {
 // Pop is Pop
 func (p *MyArr) Pop() string {
 	if len(p.sl) == 0 {
-		log.Fatal("index out of bound")
+		log.Fatal("MyArr.Pop(): can't Pop(). It's empty.")
 	}
 	popped := p.sl[0]
 	p.sl = p.sl[1:]
