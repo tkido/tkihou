@@ -300,7 +300,7 @@ func paragraph(line string) string {
 func definition(line string) string {
 	pair := strings.Split(line, ":")
 	if len(pair) != 2 {
-		log.Fatal("definition(): invalid argument")
+		return line // not convert
 	}
 	return fmt.Sprintf("<dt>%s</dt><dd>%s</dd>", inline(pair[0]), inline(pair[1]))
 }
