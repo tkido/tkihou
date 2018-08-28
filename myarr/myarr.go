@@ -6,6 +6,9 @@ import (
 	"os"
 	"regexp"
 	"strings"
+
+	"golang.org/x/text/encoding/japanese"
+	"golang.org/x/text/transform"
 )
 
 // MyArr can push unshift etc.
@@ -76,6 +79,25 @@ func ReadLines(path string) *MyArr {
 	if err != nil {
 		log.Fatal(err)
 	}
+	s := bufio.NewScanner(f)
+	arr := NewMyArr()
+	for s.Scan() {
+		arr.Push(s.Text())
+	}
+	if s.Err() != nil {
+		log.Fatal(s.Err())
+	}
+	return arr
+}
+
+// ReadLinesSjis is ReadLinesSjis
+func ReadLinesSjis(path string) *MyArr {
+	sjisF, err := os.Open(path)
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer sjisF.Close()
+	f := transform.NewReader(sjisF, japanese.ShiftJIS.NewDecoder())
 	s := bufio.NewScanner(f)
 	arr := NewMyArr()
 	for s.Scan() {

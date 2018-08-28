@@ -13,8 +13,8 @@ import (
 	"regexp"
 	"strings"
 
-	"./myarr"
-	"./util"
+	"bitbucket.org/tkido/tkihou/myarr"
+	"bitbucket.org/tkido/tkihou/util"
 )
 
 var reComment = regexp.MustCompile(`^#`)
@@ -73,7 +73,13 @@ func prepareAutoLinks() []AutoLink {
 
 func convert(src string) {
 	autoLinks = prepareAutoLinks()
-	lines := myarr.ReadLines(src)
+
+	var lines *myarr.MyArr
+	if src == namiPath {
+		lines = myarr.ReadLinesSjis(src)
+	} else {
+		lines = myarr.ReadLines(src)
+	}
 
 	var title string
 	if lines.Size() > 0 {
