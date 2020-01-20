@@ -16,12 +16,7 @@ var tmpl *template.Template
 
 func execute(title, content string) {
 	if tmpl == nil {
-		var tmplTxt string
-		if flags.Thomas {
-			tmplTxt = tmplFoma
-		} else {
-			tmplTxt = tmplTkido
-		}
+		tmplTxt := tmplTkido
 		tmpl, _ = template.ParseFiles(tmplTxt)
 	}
 	ioutil.WriteFile(rstTxt, []byte(content), os.ModePerm)

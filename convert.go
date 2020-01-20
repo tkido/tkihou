@@ -16,25 +16,23 @@ import (
 	"bitbucket.org/tkido/tkihou/myarr"
 	"bitbucket.org/tkido/tkihou/util"
 )
-
-var reComment = regexp.MustCompile(`^#`)
-var reHr = regexp.MustCompile(`^====`)
-var reHeadLine = regexp.MustCompile(`^\*`)
-var reFootNote = regexp.MustCompile(`^{{}}`)
-var reDivOpen = regexp.MustCompile(`^{`)
-var reDivClose = regexp.MustCompile(`^}`)
-var reBqOpen = regexp.MustCompile(`^>>`)
-var reBqClose = regexp.MustCompile(`^<<`)
-var rePre = regexp.MustCompile(`^\t`)
-var reDl = regexp.MustCompile(`^:`)
-var reUl = regexp.MustCompile(`^-`)
-var reOl = regexp.MustCompile(`^\+`)
-var reTable = regexp.MustCompile(`^\|`)
-
-var reNotP = regexp.MustCompile(`^([*#\t:\-\+]|====|\{|\}|>>|<<|$)`)
-
-var reTableEnd = regexp.MustCompile(`\*$`)
-
+var(
+	reComment = regexp.MustCompile(`^#`)
+	reHr = regexp.MustCompile(`^====`)
+	reHeadLine = regexp.MustCompile(`^\*`)
+	reFootNote = regexp.MustCompile(`^{{}}`)
+	reDivOpen = regexp.MustCompile(`^{`)
+	reDivClose = regexp.MustCompile(`^}`)
+	reBqOpen = regexp.MustCompile(`^>>`)
+	reBqClose = regexp.MustCompile(`^<<`)
+	rePre = regexp.MustCompile(`^\t`)
+	reDl = regexp.MustCompile(`^:`)
+	reUl = regexp.MustCompile(`^-`)
+	reOl = regexp.MustCompile(`^\+`)
+	reTable = regexp.MustCompile(`^\|`)
+	reNotP = regexp.MustCompile(`^([*#\t:\-\+]|====|\{|\}|>>|<<|$)`)
+	reTableEnd = regexp.MustCompile(`\*$`)
+)
 var footNotes = []string{}
 var fnID = ""
 
@@ -207,9 +205,6 @@ func inlineConvert(br []string) string {
 	} else if label, uri := br[14], br[15]; label != "" && uri != "" {
 		return fmt.Sprintf(`<a href="%s" target="_blank">%s</a>`, uri, html.EscapeString(label))
 	} else if br[16] != "" && br[17] != "" {
-		if flags.Thomas {
-			return fmt.Sprintf(`<a class="amazon" href="https://www.amazon.co.jp/%s%s</a>`, br[16], br[17])
-		}
 		return br[0] // not convert
 	}
 	log.Fatal("inlineConvert(): MUST NOT HAPPEN!!")

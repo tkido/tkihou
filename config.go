@@ -10,7 +10,6 @@ const (
 
 	rstTxt      = "./result.txt"
 	rstHTML     = "./result.html"
-	tmplTkido   = "./tkido.txt"
-	tmplFoma    = "./xfomax.txt"
+	tmplTkido   = "./tkido.html"
 	autoLinkTxt = "./auto_links.txt"
 )
