@@ -9,7 +9,7 @@ const (
 	namiPath  = `C:\ols\Nami2000\temp.txt`
 
 	rstTxt      = "./result.txt"
-	rstHTML     = "./result.html"
+	rstHTML     = "./index.html"
 	tmplTkido   = "./tkido.html"
 	autoLinkTxt = "./auto_links.txt"
 )
