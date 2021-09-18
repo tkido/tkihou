@@ -14,7 +14,7 @@ import (
 
 func main() {
 	convert(getSource())
-	exec.Command(chrome, rstHTML).Run()
+	exec.Command(chrome, testURL).Run()
 
 	if flags.Watch {
 		watch()
