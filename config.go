@@ -9,8 +9,8 @@ const (
 	namiPath  = `C:\ols\Nami2000\temp.txt`
 
 	rstTxt      = "./result.txt"
-	rstHTML     = "./index.html"
-	testURL     = `http://127.0.0.1:8887/index.html`
+	rstHTML     = `C:\tmp\html\blog\index.html`
+	testURL     = `http://127.0.0.1:8887/blog/index.html`
 	tmplTkido   = "./tkido.html"
 	autoLinkTxt = "./auto_links.txt"
 )
