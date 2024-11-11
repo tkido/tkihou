@@ -26,7 +26,6 @@ func watch() {
 	watcher, _ := fsnotify.NewWatcher()
 	defer watcher.Close()
 	watcher.Add(watchPath)
-	watcher.Add(namiPath)
 
 	updated := time.Now()
 

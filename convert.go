@@ -16,21 +16,22 @@ import (
 	"bitbucket.org/tkido/tkihou/myarr"
 	"bitbucket.org/tkido/tkihou/util"
 )
-var(
-	reComment = regexp.MustCompile(`^#`)
-	reHr = regexp.MustCompile(`^====`)
+
+var (
+	reComment  = regexp.MustCompile(`^#`)
+	reHr       = regexp.MustCompile(`^====`)
 	reHeadLine = regexp.MustCompile(`^\*`)
 	reFootNote = regexp.MustCompile(`^{{}}`)
-	reDivOpen = regexp.MustCompile(`^{`)
+	reDivOpen  = regexp.MustCompile(`^{`)
 	reDivClose = regexp.MustCompile(`^}`)
-	reBqOpen = regexp.MustCompile(`^>>`)
-	reBqClose = regexp.MustCompile(`^<<`)
-	rePre = regexp.MustCompile(`^\t`)
-	reDl = regexp.MustCompile(`^:`)
-	reUl = regexp.MustCompile(`^-`)
-	reOl = regexp.MustCompile(`^\+`)
-	reTable = regexp.MustCompile(`^\|`)
-	reNotP = regexp.MustCompile(`^([*#\t:\-\+]|====|\{|\}|>>|<<|$)`)
+	reBqOpen   = regexp.MustCompile(`^>>`)
+	reBqClose  = regexp.MustCompile(`^<<`)
+	rePre      = regexp.MustCompile(`^\t`)
+	reDl       = regexp.MustCompile(`^:`)
+	reUl       = regexp.MustCompile(`^-`)
+	reOl       = regexp.MustCompile(`^\+`)
+	reTable    = regexp.MustCompile(`^\|`)
+	reNotP     = regexp.MustCompile(`^([*#\t:\-\+]|====|\{|\}|>>|<<|$)`)
 	reTableEnd = regexp.MustCompile(`\*$`)
 )
 var footNotes = []string{}
@@ -71,13 +72,7 @@ func prepareAutoLinks() []AutoLink {
 
 func convert(src string) {
 	autoLinks = prepareAutoLinks()
-
-	var lines *myarr.MyArr
-	if src == namiPath {
-		lines = myarr.ReadLinesSjis(src)
-	} else {
-		lines = myarr.ReadLines(src)
-	}
+	lines := myarr.ReadLines(src)
 
 	var title string
 	if lines.Size() > 0 {

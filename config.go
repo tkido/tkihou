@@ -1,16 +1,15 @@
 package main
 
 const (
-	chrome = `C:\Program Files (x86)\Google\Chrome\Application\chrome.exe`
+	chrome = `C:\Program Files\Google\Chrome\Application\chrome.exe`
 	editor = `C:\Program Files (x86)\Hidemaru\Hidemaru.exe`
 
-	watchPath = `C:\Users\tkido\Dropbox\Kami Data\ブログ`
+	watchPath = `C:\Users\takan\Dropbox\Kami Data\ブログ`
 	globPath  = watchPath + `\*.txt`
-	namiPath  = `C:\ols\Nami2000\temp.txt`
 
 	rstTxt      = "./result.txt"
-	rstHTML     = `C:\tmp\html\blog\index.html`
-	testURL     = `http://127.0.0.1:8887/blog/index.html`
+	rstHTML     = `C:\xampp\htdocs\blog\index.html`
+	testURL     = `http://localhost/blog/index.html`
 	tmplTkido   = "./tkido.html"
 	autoLinkTxt = "./auto_links.txt"
 )
