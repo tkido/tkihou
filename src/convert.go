@@ -166,7 +166,6 @@ var reInlineRaw = `
 | \[([0-9^;]+?);y\]              # $12: yahoo finance Japan
 | \[([A-Z^;]+?);y\]              # $13: yahoo finance America
 | \[([^;]+?);(https?://.+?)\]    # $14: label, $15: URI
-| ^<a\shref="https://www\.amazon\.co\.jp/(.*?)</a>(.*)$ # $16, $17: xFOMAx's Amazon link
 `
 var reInline = regexp.MustCompile(reReComment.ReplaceAllString(reInlineRaw, ""))
 
