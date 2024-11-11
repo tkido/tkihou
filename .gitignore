@@ -25,5 +25,5 @@ _testmain.go
 
 # Added
 src/debug.log
-result.txt
+src/result.txt
 index.html
