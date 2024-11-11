@@ -9,7 +9,7 @@ const (
 
 	rstTxt      = "./result.txt"
 	rstHTML     = `\\192.168.0.100\tkido\work\tkihou\server\html\index.html`
-	testURL     = `http://localhost:8080`
+	testURL     = `http://192.168.0.100:8080/`
 	tmplTkido   = "./tkido.html"
 	autoLinkTxt = "./auto_links.txt"
 )
